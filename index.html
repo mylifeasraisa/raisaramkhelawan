@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blauwdruk — Journey Business Studies · Raisa Ramkhelawan</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --blauw-diep:   #0D1B2A;
@@ -17,6 +17,7 @@
   --koraal:       #FB836F;
   --roze:         #C1549C;
   --paars:        #7E549F;
+  --groen:        #6FCF97;
   --wit:          #EFF4F8;
   --grijs:        #7A8A9A;
 }
@@ -85,7 +86,7 @@ nav::before {
   display:grid; place-items:center;
 }
 .nav-logo-mark svg { width:10px; height:10px; fill:var(--blauw-accent); }
-.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links { display:flex; gap:2.1rem; list-style:none; }
 .nav-links a {
   font-family:'DM Mono',monospace;
   font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase;
@@ -103,8 +104,6 @@ nav::before {
   padding:0 3rem 5rem;
   position:relative; overflow:hidden;
 }
-
-/* Blauwdruk decoratieve lijnen */
 .hero-lines {
   position:absolute; inset:0;
   pointer-events:none; z-index:1;
@@ -115,8 +114,6 @@ nav::before {
   width:100%; height:100%;
   opacity:0.18;
 }
-
-/* Glow */
 .hero-glow {
   position:absolute;
   width:800px; height:800px;
@@ -133,9 +130,7 @@ nav::before {
   bottom:-100px; left:10%;
   pointer-events:none; z-index:1;
 }
-
-.hero-content { position:relative; z-index:2; max-width:1100px; }
-
+.hero-content { position:relative; z-index:2; max-width:1120px; }
 .hero-tag {
   font-family:'DM Mono',monospace;
   font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
@@ -144,7 +139,6 @@ nav::before {
   display:flex; align-items:center; gap:0.75rem;
 }
 .hero-tag::before { content:''; width:28px; height:1px; background:var(--blauw-accent); }
-
 .hero-h1 {
   font-family:'Syne',sans-serif;
   font-size:clamp(3.5rem,8.5vw,8.5rem);
@@ -157,21 +151,18 @@ nav::before {
   -webkit-text-stroke:1.5px rgba(255,255,255,0.5);
 }
 .hero-h1 .accent { color:var(--geel); }
-
 .hero-sub {
-  font-size:1rem; color:rgba(255,255,255,0.42);
+  font-size:1rem; color:rgba(255,255,255,0.46);
   font-weight:300; line-height:1.65;
-  max-width:500px; margin-bottom:3rem;
+  max-width:600px; margin-bottom:3rem;
 }
-
 .hero-meta-row { display:flex; gap:3rem; flex-wrap:wrap; }
 .hero-meta-label {
   font-family:'DM Mono',monospace;
   font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase;
   color:rgba(255,255,255,0.2); margin-bottom:0.2rem;
 }
-.hero-meta-waarde { font-size:0.82rem; color:rgba(255,255,255,0.55); }
-
+.hero-meta-waarde { font-size:0.82rem; color:rgba(255,255,255,0.58); }
 .hero-coord {
   position:absolute; top:6rem; right:3rem;
   z-index:2; text-align:right;
@@ -181,7 +172,6 @@ nav::before {
   font-size:0.6rem; letter-spacing:0.1em;
   color:rgba(255,255,255,0.15); line-height:1.8;
 }
-
 .scroll-indicator {
   position:absolute; bottom:2.5rem; right:3rem;
   z-index:2; display:flex; align-items:center; gap:0.6rem;
@@ -245,13 +235,11 @@ section { position:relative; }
   color:rgba(13,27,42,0.05); line-height:1;
   margin-top:1rem; letter-spacing:-0.04em;
 }
-
 .body-p {
   font-size:1.05rem; line-height:1.85;
   font-weight:300; margin-bottom:1.5rem;
 }
-.body-p strong { font-weight:500; }
-
+.body-p strong { font-weight:600; }
 .inline-quote {
   font-family:'Syne',sans-serif;
   font-size:1.4rem; font-weight:700;
@@ -260,7 +248,6 @@ section { position:relative; }
   padding:1rem 0 1rem 1.75rem;
   margin:2.5rem 0;
 }
-
 .theorie-block {
   background:var(--blauw-diep); color:var(--wit);
   border-radius:12px; padding:2rem 2.25rem;
@@ -272,8 +259,75 @@ section { position:relative; }
   font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
   color:var(--blauw-accent); margin-bottom:0.75rem;
 }
-.theorie-block p { font-size:0.9rem; line-height:1.75; color:rgba(255,255,255,0.65); font-weight:300; }
+.theorie-block p { font-size:0.9rem; line-height:1.75; color:rgba(255,255,255,0.66); font-weight:300; }
 .theorie-block cite { display:block; font-size:0.7rem; color:rgba(255,255,255,0.25); margin-top:0.65rem; font-style:normal; }
+
+/* ── OVERZICHT / SCOREKAART ── */
+.score-sectie {
+  background:#F7FAFC;
+  color:var(--blauw-diep);
+  padding:7rem 3rem;
+}
+.score-inner { max-width:1100px; margin:0 auto; }
+.section-eyebrow {
+  font-family:'DM Mono',monospace;
+  font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--blauw-helder); margin-bottom:1rem;
+}
+.section-title {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.1rem,4vw,3.6rem);
+  font-weight:800; line-height:1.05;
+  letter-spacing:-0.03em;
+  margin-bottom:1rem;
+}
+.section-lead {
+  max-width:760px;
+  font-size:1rem; line-height:1.8;
+  color:#526272;
+  font-weight:300;
+  margin-bottom:3rem;
+}
+.score-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+.score-card {
+  background:#FFFFFF;
+  border:1px solid rgba(13,27,42,0.08);
+  border-radius:14px;
+  padding:1.35rem;
+  min-height:210px;
+  box-shadow:0 16px 45px rgba(13,27,42,0.05);
+}
+.score-top {
+  display:flex; justify-content:space-between; gap:1rem; align-items:start;
+  margin-bottom:0.8rem;
+}
+.score-num {
+  font-family:'DM Mono',monospace;
+  color:var(--blauw-helder);
+  font-size:0.68rem;
+  letter-spacing:0.1em;
+}
+.score-weight {
+  font-family:'DM Mono',monospace;
+  color:#9AA8B5;
+  font-size:0.62rem;
+}
+.score-title {
+  font-family:'Syne',sans-serif;
+  font-size:1rem;
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:0.65rem;
+}
+.score-text {
+  font-size:0.82rem;
+  line-height:1.65;
+  color:#5A6A7A;
+}
 
 /* ── TIJDLIJN ── */
 .tijdlijn-sectie {
@@ -298,7 +352,6 @@ section { position:relative; }
   display:flex; align-items:center; gap:0.75rem;
 }
 .tl-header::before { content:''; width:24px; height:1px; background:rgba(255,255,255,0.25); }
-
 .tl-items { display:flex; flex-direction:column; }
 .tl-item {
   display:grid; grid-template-columns:120px 40px 1fr;
@@ -312,10 +365,7 @@ section { position:relative; }
   color:rgba(255,255,255,0.25); letter-spacing:0.06em;
   padding-top:0.15rem; text-align:right; padding-right:1.5rem;
 }
-.tl-midden {
-  display:flex; flex-direction:column; align-items:center;
-  padding-top:0.2rem;
-}
+.tl-midden { display:flex; flex-direction:column; align-items:center; padding-top:0.2rem; }
 .tl-dot {
   width:9px; height:9px; border-radius:50%;
   border:1.5px solid rgba(255,255,255,0.2);
@@ -332,7 +382,7 @@ section { position:relative; }
   color:var(--wit); margin-bottom:0.3rem;
 }
 .tl-item.accent .tl-titel { color:var(--geel); }
-.tl-tekst { font-size:0.85rem; color:rgba(255,255,255,0.42); line-height:1.65; font-weight:300; }
+.tl-tekst { font-size:0.85rem; color:rgba(255,255,255,0.44); line-height:1.65; font-weight:300; max-width:760px; }
 .tl-badge {
   display:inline-block; margin-top:0.6rem;
   font-family:'DM Mono',monospace; font-size:0.58rem;
@@ -357,14 +407,11 @@ section { position:relative; }
   background-size:60px 60px;
   pointer-events:none;
 }
-
 .fase-01 { background:var(--blauw-diep); }
 .fase-02 { background:#0E2233; }
 .fase-02b { background:var(--blauw-mid); }
 .fase-03 { background:#0A1A28; }
-
 .fase-inner { max-width:1100px; margin:0 auto; position:relative; z-index:1; }
-
 .fase-kop {
   display:flex; justify-content:space-between; align-items:flex-start;
   margin-bottom:5rem; gap:2rem; flex-wrap:wrap;
@@ -376,38 +423,27 @@ section { position:relative; }
   display:flex; align-items:center; gap:0.6rem;
 }
 .fase-kop-id::before { content:''; width:20px; height:1px; background:rgba(255,255,255,0.25); }
-
-.kleur-dot {
-  width:8px; height:8px; border-radius:50%;
-  display:inline-block; margin-right:0.4rem;
-}
-
+.kleur-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:0.4rem; }
 .fase-h2 {
   font-family:'Syne',sans-serif;
   font-size:clamp(2.2rem,4.5vw,4rem);
   font-weight:800; line-height:1.0;
   letter-spacing:-0.03em; color:var(--wit);
-  max-width:580px;
+  max-width:640px;
 }
-.fase-kop-rechts { max-width:360px; }
+.fase-kop-rechts { max-width:380px; }
 .fase-kop-rechts p {
-  font-size:0.92rem; color:rgba(255,255,255,0.4);
+  font-size:0.92rem; color:rgba(255,255,255,0.42);
   line-height:1.75; font-weight:300;
 }
-
-/* body tekst in fase */
 .fase-body-p {
   font-size:1rem; line-height:1.85;
-  color:rgba(255,255,255,0.65); font-weight:300;
+  color:rgba(255,255,255,0.66); font-weight:300;
   margin-bottom:1.4rem;
+  max-width:880px;
 }
-.fase-body-p strong { font-weight:500; color:var(--wit); }
-
-/* comp grid */
-.comp-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:1.25rem; margin:2.5rem 0;
-}
+.fase-body-p strong { font-weight:600; color:var(--wit); }
+.comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:2.5rem 0; }
 .comp-card {
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.08);
@@ -415,31 +451,18 @@ section { position:relative; }
   transition:background 0.25s, transform 0.25s;
   position:relative; overflow:hidden;
 }
-.comp-card::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0;
-  height:2px;
-}
+.comp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
 .c-geel::before { background:var(--geel); }
 .c-koraal::before { background:var(--koraal); }
 .c-roze::before { background:var(--roze); }
 .c-paars::before { background:var(--paars); }
 .c-blauw::before { background:var(--blauw-accent); }
-
+.c-groen::before { background:var(--groen); }
 .comp-card:hover { background:rgba(255,255,255,0.07); transform:translateY(-3px); }
 .comp-kop { display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:0.85rem; }
-.comp-naam {
-  font-family:'Syne',sans-serif;
-  font-size:0.9rem; font-weight:700; color:var(--wit); line-height:1.25;
-}
-.comp-pct {
-  font-family:'DM Mono',monospace;
-  font-size:0.62rem; color:rgba(255,255,255,0.25); white-space:nowrap; padding-top:0.12rem;
-}
-.comp-tekst {
-  font-size:0.85rem; line-height:1.72;
-  color:rgba(255,255,255,0.55); font-weight:300; margin-bottom:1rem;
-}
+.comp-naam { font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:700; color:var(--wit); line-height:1.25; }
+.comp-pct { font-family:'DM Mono',monospace; font-size:0.62rem; color:rgba(255,255,255,0.25); white-space:nowrap; padding-top:0.12rem; }
+.comp-tekst { font-size:0.85rem; line-height:1.72; color:rgba(255,255,255,0.56); font-weight:300; margin-bottom:1rem; }
 .comp-tag {
   font-family:'DM Mono',monospace;
   font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase;
@@ -447,18 +470,14 @@ section { position:relative; }
   border:1px solid rgba(255,255,255,0.1);
   color:rgba(255,255,255,0.3); display:inline-block;
 }
-
-/* fase quote */
 .fase-quote {
   font-family:'Syne',sans-serif;
   font-size:clamp(1.3rem,2.2vw,1.85rem);
   font-weight:700; line-height:1.35; color:var(--wit);
   border-top:1px solid rgba(255,255,255,0.1);
   padding-top:2rem; margin:4rem 0 0;
-  max-width:780px;
+  max-width:830px;
 }
-
-/* fase theorie */
 .fase-theorie {
   background:rgba(74,159,212,0.07);
   border:1px solid rgba(74,159,212,0.15);
@@ -471,28 +490,36 @@ section { position:relative; }
   font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
   color:var(--blauw-accent); margin-bottom:0.6rem;
 }
-.fase-theorie p { font-size:0.88rem; line-height:1.75; color:rgba(255,255,255,0.6); font-weight:300; }
-.fase-theorie cite { display:block; font-size:0.7rem; color:rgba(255,255,255,0.22); margin-top:0.6rem; font-style:normal; }
+.fase-theorie p { font-size:0.88rem; line-height:1.75; color:rgba(255,255,255,0.62); font-weight:300; }
+.fase-theorie cite { display:block; font-size:0.7rem; color:rgba(255,255,255,0.24); margin-top:0.6rem; font-style:normal; }
+
+/* ── REFLECTIEBLOKKEN ── */
+.reflectie-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin:2.5rem 0 0; }
+.reflectie-card {
+  background:rgba(255,255,255,0.035);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  padding:1.5rem;
+}
+.reflectie-card h4 {
+  font-family:'Syne',sans-serif;
+  font-size:0.98rem;
+  margin-bottom:0.7rem;
+}
+.reflectie-card p {
+  font-size:0.82rem;
+  line-height:1.7;
+  color:rgba(255,255,255,0.55);
+  font-weight:300;
+}
 
 /* ── TOEKOMST ── */
 .toekomst-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
-.toekomst-kaart {
-  border-radius:12px; padding:2rem;
-  border:1px solid rgba(255,255,255,0.08);
-}
+.toekomst-kaart { border-radius:12px; padding:2rem; border:1px solid rgba(255,255,255,0.08); }
 .tk-meeneem { background:rgba(74,159,212,0.07); border-color:rgba(74,159,212,0.15); }
 .tk-ontwikkel { background:rgba(255,255,255,0.03); }
-.tk-kop {
-  font-family:'DM Mono',monospace;
-  font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:rgba(255,255,255,0.28); margin-bottom:1.25rem;
-}
-.tk-item {
-  display:flex; gap:0.75rem; align-items:flex-start;
-  margin-bottom:0.8rem;
-  font-size:0.88rem; color:rgba(255,255,255,0.62);
-  font-weight:300; line-height:1.55;
-}
+.tk-kop { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:1.25rem; }
+.tk-item { display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:0.8rem; font-size:0.88rem; color:rgba(255,255,255,0.62); font-weight:300; line-height:1.55; }
 .tk-pijl { color:var(--blauw-accent); font-weight:500; flex-shrink:0; margin-top:0.05rem; }
 .tk-ontwikkel .tk-pijl { color:rgba(255,255,255,0.2); }
 
@@ -518,15 +545,8 @@ section { position:relative; }
   top:50%; left:50%; transform:translate(-50%,-50%);
   pointer-events:none;
 }
-
-/* Blauwdruk-ikon boven */
-.blauwdruk-icon {
-  position:relative; z-index:1;
-  margin:0 auto 3.5rem;
-  width:80px; height:80px;
-}
+.blauwdruk-icon { position:relative; z-index:1; margin:0 auto 3.5rem; width:80px; height:80px; }
 .blauwdruk-icon svg { width:80px; height:80px; opacity:0.35; }
-
 .afsluiting-h2 {
   font-family:'Syne',sans-serif;
   font-size:clamp(3rem,7vw,7rem);
@@ -535,60 +555,50 @@ section { position:relative; }
   margin-bottom:2rem; position:relative; z-index:1;
 }
 .afsluiting-h2 em { font-style:italic; color:var(--blauw-accent); font-weight:400; }
-
 .afsluiting-tekst {
-  font-size:1rem; color:rgba(255,255,255,0.4);
+  font-size:1rem; color:rgba(255,255,255,0.42);
   font-weight:300; line-height:1.8;
-  max-width:560px; margin:0 auto 4rem;
+  max-width:620px; margin:0 auto 4rem;
   position:relative; z-index:1;
 }
-
 .vraag-box {
   display:inline-block; position:relative; z-index:1;
   border:1px solid rgba(74,159,212,0.25);
   background:rgba(74,159,212,0.05);
   border-radius:16px; padding:2.5rem 3.5rem;
-  max-width:600px; margin:0 auto 5rem;
+  max-width:660px; margin:0 auto 5rem;
 }
-.vraag-box p {
-  font-family:'Syne',sans-serif;
-  font-size:1.35rem; font-weight:600;
-  color:var(--wit); line-height:1.4;
-}
+.vraag-box p { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:600; color:var(--wit); line-height:1.4; }
 .vraag-box p em { color:var(--blauw-accent); font-style:italic; font-weight:400; }
-
-.meta-grid {
-  display:flex; gap:4rem; justify-content:center;
-  flex-wrap:wrap; position:relative; z-index:1;
-}
+.meta-grid { display:flex; gap:4rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
 .meta-item { text-align:left; }
-.meta-label {
-  font-family:'DM Mono',monospace;
-  font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase;
-  color:rgba(255,255,255,0.18); margin-bottom:0.2rem;
-}
+.meta-label { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.18); margin-bottom:0.2rem; }
 .meta-waarde { font-size:0.85rem; color:rgba(255,255,255,0.5); }
-
-/* FOOTER */
-footer {
-  background:#060E16; padding:1.2rem 3rem;
-  display:flex; justify-content:space-between; align-items:center;
-}
-footer span {
-  font-family:'DM Mono',monospace;
-  font-size:0.58rem; letter-spacing:0.1em;
-  color:rgba(255,255,255,0.12); text-transform:uppercase;
-}
+footer { background:#060E16; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; color:rgba(255,255,255,0.12); text-transform:uppercase; }
 
 /* ANIMATIES */
-.fade-up {
-  opacity:0; transform:translateY(28px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
+.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.zichtbaar { opacity:1; transform:translateY(0); }
 .fd1 { transition-delay:0.1s; }
 .fd2 { transition-delay:0.2s; }
 .fd3 { transition-delay:0.3s; }
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  nav { padding:1rem 1.4rem; }
+  .nav-links { display:none; }
+  .hero { padding:0 1.4rem 4rem; }
+  .hero-coord { display:none; }
+  .hero-meta-row { gap:1.5rem; }
+  .intro-sectie, .tijdlijn-sectie, .fase, .score-sectie, .afsluiting { padding-left:1.4rem; padding-right:1.4rem; }
+  .intro-inner { grid-template-columns:1fr; gap:2.5rem; }
+  .intro-sidebar { position:relative; top:0; }
+  .comp-grid, .toekomst-grid, .score-grid, .reflectie-grid { grid-template-columns:1fr; }
+  .tl-item { grid-template-columns:70px 30px 1fr; }
+  .tl-jaar { font-size:0.62rem; padding-right:0.8rem; }
+  footer { flex-direction:column; align-items:flex-start; }
+}
 </style>
 </head>
 <body>
@@ -606,11 +616,11 @@ footer span {
   </div>
   <ul class="nav-links">
     <li><a href="#intro"><span class="nav-num">00</span> Intro</a></li>
+    <li><a href="#criteria"><span class="nav-num">☆</span> Criteria</a></li>
     <li><a href="#tijdlijn"><span class="nav-num">—</span> Tijdlijn</a></li>
     <li><a href="#voor"><span class="nav-num">01</span> Vóór</a></li>
     <li><a href="#tijdens"><span class="nav-num">02</span> Tijdens</a></li>
     <li><a href="#na"><span class="nav-num">03</span> Na</a></li>
-    <li><a href="#afsluiting"><span class="nav-num">↓</span> Afsluiting</a></li>
   </ul>
 </nav>
 
@@ -618,7 +628,6 @@ footer span {
 <section class="hero" id="top">
   <div class="hero-lines">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- Architectuurlijnen -->
       <line x1="200" y1="0" x2="200" y2="900" stroke="white" stroke-width="0.5"/>
       <line x1="0" y1="300" x2="1440" y2="300" stroke="white" stroke-width="0.5"/>
       <circle cx="200" cy="300" r="120" stroke="white" stroke-width="0.5" fill="none"/>
@@ -629,18 +638,14 @@ footer span {
       <line x1="850" y1="180" x2="1250" y2="180" stroke="white" stroke-width="0.3"/>
       <line x1="1050" y1="100" x2="1050" y2="380" stroke="white" stroke-width="0.3"/>
       <circle cx="1050" cy="240" r="60" stroke="white" stroke-width="0.4" fill="none"/>
-      <!-- Maatlijnen -->
       <line x1="80" y1="180" x2="80" y2="420" stroke="white" stroke-width="0.4"/>
       <line x1="75" y1="180" x2="85" y2="180" stroke="white" stroke-width="0.4"/>
       <line x1="75" y1="420" x2="85" y2="420" stroke="white" stroke-width="0.4"/>
       <line x1="200" y1="50" x2="700" y2="50" stroke="white" stroke-width="0.4"/>
       <line x1="200" y1="45" x2="200" y2="55" stroke="white" stroke-width="0.4"/>
       <line x1="700" y1="45" x2="700" y2="55" stroke="white" stroke-width="0.4"/>
-      <line x1="1300" y1="100" x2="1300" y2="380" stroke="white" stroke-width="0.3"/>
-      <!-- Diagonalen -->
       <line x1="700" y1="300" x2="850" y2="100" stroke="white" stroke-width="0.3"/>
       <line x1="200" y1="420" x2="700" y2="500" stroke="white" stroke-width="0.25"/>
-      <!-- Kleine kruisjes -->
       <line x1="1050" y1="237" x2="1050" y2="243" stroke="white" stroke-width="0.6"/>
       <line x1="1047" y1="240" x2="1053" y2="240" stroke="white" stroke-width="0.6"/>
       <line x1="200" y1="297" x2="200" y2="303" stroke="white" stroke-width="0.6"/>
@@ -653,7 +658,7 @@ footer span {
   <div class="hero-coord">
     <p>JOURNEY · BUSINESS STUDIES HRM</p>
     <p>ZUYD HOGESCHOOL · 2026</p>
-    <p>REV. 1.0 · NL</p>
+    <p>REV. 2.0 · NL</p>
   </div>
 
   <div class="hero-content">
@@ -663,31 +668,16 @@ footer span {
       <span class="naam">Raisa</span><br>
       <span class="accent">Ramkhelawan</span>
     </h1>
-    <p class="hero-sub">Een HR-professional bouwt. Ze tekent wat er moet komen vóórdat het bestaat — en laat iets achter dat blijft staan zonder dat ze erbij is.</p>
+    <p class="hero-sub">Een digitale journey over mijn ontwikkeling vóór, tijdens en na de opleiding Business Studies HRM: van operationeel aanpakken naar strategisch kijken, van terughoudend aanwezig zijn naar bewust positie innemen.</p>
     <div class="hero-meta-row">
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Naam</div>
-        <div class="hero-meta-waarde">Raisa Ramkhelawan</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Opleiding</div>
-        <div class="hero-meta-waarde">Business Studies HRM, deeltijd</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Instelling</div>
-        <div class="hero-meta-waarde">Zuyd Hogeschool, Heerlen</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Werkgever</div>
-        <div class="hero-meta-waarde">MSC Laurentius, Roermond</div>
-      </div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Naam</div><div class="hero-meta-waarde">Raisa Ramkhelawan</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Opleiding</div><div class="hero-meta-waarde">Business Studies HRM, deeltijd</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Instelling</div><div class="hero-meta-waarde">Zuyd Hogeschool, Heerlen</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Werkgever</div><div class="hero-meta-waarde">MSC Laurentius, Roermond</div></div>
     </div>
   </div>
 
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
+  <div class="scroll-indicator"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
 <!-- ── INTRO ── -->
@@ -696,30 +686,60 @@ footer span {
     <div class="intro-sidebar">
       <div class="sidebar-label fade-up">Sectie 00</div>
       <h3 class="sidebar-h3 fade-up">Het fundament</h3>
-      <p class="sidebar-p fade-up">Elke blauwdruk begint met het fundament. Dit is het verhaal onder alles — persoonlijk, ongepolijst, eerlijk.</p>
+      <p class="sidebar-p fade-up">Elke blauwdruk begint met een ondergrond. Dit is het verhaal onder mijn professionele ontwikkeling: persoonlijk, eerlijk en bepalend voor hoe ik werk.</p>
       <div class="sidebar-nr">00</div>
     </div>
     <div>
-      <p class="body-p big-first fade-up" style="color:var(--blauw-diep);">
-        Ik herinner me de keukentafel nog goed. Mijn moeder naast me, het huiswerk uitgespreid, en ik — huilend — omdat ik het maar niet begreep. Breuken. Tafels. Kloklezen. Dingen die mijn klasgenoten moeiteloos leken te doen, voelden voor mij als een muur. Later bleek er een naam voor te zijn: <strong>dyscalculie</strong>. Een rekenstoornis. Maar wat me meer bijbleef dan de diagnose, waren de gesprekken erna — die me voor het eerst lieten begrijpen dat er niets mis was met mij.
+      <p class="body-p fade-up" style="color:var(--blauw-diep);">
+        Ik ben geboren en opgegroeid in <strong>Zeeuws-Vlaanderen</strong>, in een gezin waarin twee werelden vanzelfsprekend samenkwamen: mijn vader is Surinaams, mijn moeder Nederlands. Daardoor leerde ik al vroeg schakelen tussen perspectieven, gewoontes en manieren van communiceren. Wat voor de één logisch is, is dat voor de ander niet altijd. Die sensitiviteit neem ik nog steeds mee in mijn werk als HR-professional.
+      </p>
+      <p class="body-p fade-up" style="color:var(--blauw-diep);">
+        In 2019 verhuisde ik naar <strong>Limburg</strong>, voor de liefde. Dat was een grote persoonlijke stap: weg uit mijn vertrouwde omgeving, opnieuw wortelen, een nieuw netwerk opbouwen en mezelf professioneel opnieuw positioneren. Achteraf zie ik die verhuizing als een vroeg kantelpunt in mijn ontwikkeling. Ik leerde dat groei niet altijd comfortabel voelt, maar juist vaak begint wanneer je je vaste grond verlaat.
       </p>
       <div class="inline-quote fade-up">
-        "Niet dom. Alleen anders bedraadd. Dat was de eerste steen in het fundament."
+        "Mijn journey begon niet op school, maar op het moment dat ik leerde bewegen tussen werelden."
       </div>
       <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Jaren later kreeg ik een tweede diagnose: <strong>hEDS</strong> — Hypermobiel Ehlers-Danlos Syndroom, aangevuld met POTS en MCAS. Jaren van ziekenhuisbezoeken, onbegrip, artsen zonder antwoord. Een lichaam dat stopte terwijl ik niet wilde stoppen. Maar ook die periode leerde me iets: dat je zelf de regie kunt pakken, ook als alles om je heen onduidelijk is. Dat je kunt bouwen — ook op wankele grond.
+        Ik herinner me ook de keukentafel nog goed. Mijn moeder naast me, het huiswerk uitgespreid, en ik — huilend — omdat ik het maar niet begreep. Breuken. Tafels. Kloklezen. Dingen die mijn klasgenoten moeiteloos leken te doen, voelden voor mij als een muur. Later bleek er een naam voor te zijn: <strong>dyscalculie</strong>. Die diagnose gaf taal aan iets wat ik lang had gevoeld: ik was niet minder slim, ik moest anders leren bouwen.
       </p>
       <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Ik kom uit een Surinaams-Nederlandse familie, opgegroeid in Limburg. Thuis werd hard werken niet gezegd — het werd gedaan. Ik leerde vroeg dat je niet wacht tot dingen vanzelf gaan. Die houding nam ik mee naar alles: mijn eerste stage, mijn eerste baan, mijn keuze voor een deeltijdopleiding naast een fulltime job. Elke stap was een volgende laag op de blauwdruk.
+        Die ervaring heeft mijn leerhouding gevormd. Ik ben niet iemand die vanzelfsprekend via de kortste route leert. Ik moet verbanden zien, systemen begrijpen en informatie visueel maken. Precies daarom past deze website als vorm bij mij. Grafisch ontwerp is voor mij geen versiering, maar een manier om betekenis te ordenen. Een complexe ontwikkeling wordt zichtbaar wanneer je haar ontwerpt.
       </p>
       <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Een blauwdruk is nooit het eindproduct — het is de intentie. Wat je tekent voordat het bestaat. Wat je achterlaat als je verder gaat. Bij Timing, bij LIOF, bij MSC Laurentius: ik heb overal iets gebouwd dat daarna bleef staan zonder dat ik erbij was. Dit portfolio is de blauwdruk van dat alles.
+        Ook mijn gezondheid heeft invloed gehad op mijn ontwikkeling. De diagnose <strong>hEDS</strong>, aangevuld met POTS en MCAS, maakte dat ik opnieuw moest leren omgaan met grenzen, energie en onzekerheid. Ik heb ervaren dat zelfsturing niet alleen gaat over doelen halen, maar ook over realistisch plannen, signalen serieus nemen en blijven groeien zonder jezelf voorbij te lopen.
+      </p>
+      <p class="body-p fade-up" style="color:var(--blauw-diep);">
+        Dit portfolio is daarom geen standaard reflectieverslag. Het is een digitale blauwdruk van mijn ontwikkeling: persoonlijk én professioneel, creatief én analytisch. Ik kijk terug op wie ik was vóór de opleiding, onderzoek hoe ik mij tijdens de opleiding heb ontwikkeld en beschrijf hoe ik mijn ontwikkeling na de opleiding bewust voortzet.
       </p>
       <div class="theorie-block fade-up">
         <div class="theorie-label-s">Theoretisch kader — Kolb (1984)</div>
-        <p>De manier waarop ik mijn eigen ontwikkeling begrijp sluit aan bij Kolb's leercyclus: ervaren, reflecteren, conceptualiseren en experimenteren. Geen rechte lijn maar een spiraal — je keert terug naar eerdere ervaringen met nieuwe ogen. De feedback die ik bij Timing ontving reflecteerde ik bij LIOF, en conceptualiseerde ik in mijn scriptie. Bouwen is ook: leren van wat je eerder hebt neergezet.</p>
+        <p>Mijn ontwikkeling sluit aan bij Kolb's leercyclus: ervaren, reflecteren, conceptualiseren en experimenteren. Bij mij loopt leren zelden lineair. Ik ervaar iets in de praktijk, reflecteer erop, zoek taal en theorie om het te begrijpen en probeer daarna bewuster ander gedrag uit. Zo werd feedback bij Timing later een leerdoel bij LIOF en uiteindelijk een onderzoeksvraag binnen mijn scriptie.</p>
         <cite>Kolb, D.A. (1984). Experiential learning. Prentice-Hall.</cite>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CRITERIA / SCOREKAART ── -->
+<section class="score-sectie" id="criteria">
+  <div class="score-inner">
+    <div class="section-eyebrow fade-up">Beoordelingskader</div>
+    <h2 class="section-title fade-up">De competenties als ontwerpprincipes</h2>
+    <p class="section-lead fade-up">De journey vraagt om reflectie op alle competenties vanuit verschillende perspectieven: hoe ik begon, hoe ik mij ontwikkelde en hoe ik verder groei. Daarom gebruik ik de competenties niet als losse checklist, maar als ontwerpprincipes voor mijn professionele ontwikkeling.</p>
+
+    <div class="score-grid fade-up">
+      <div class="score-card"><div class="score-top"><span class="score-num">1.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Critical thinking & problem solving</h3><p class="score-text">Van snel oplossen naar analyseren, alternatieven afwegen en aannames zichtbaar maken.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">1.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Creative thinking</h3><p class="score-text">Mijn grafische hobby werd een professionele vaardigheid: complexe informatie toegankelijk maken.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">1.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Collaboration</h3><p class="score-text">Samenwerken met verschillende disciplines, belangen en niveaus, zonder het doel uit het oog te verliezen.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">1.4</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Communication</h3><p class="score-text">Van terughoudend communiceren naar zichtbaar, doelgericht en passend bij de ontvanger.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">1.5</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Implement innovations</h3><p class="score-text">Nieuwe ideeën vertalen naar werkbare toepassingen, zoals ATS, e-learning en digitale HR-communicatie.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">2.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Information literacy</h3><p class="score-text">Informatie zoeken, selecteren, beoordelen en vertalen naar beleid, advies of besluitvorming.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">2.2</span><span class="score-weight">10%</span></div><h3 class="score-title">Media literacy</h3><p class="score-text">Bewust omgaan met digitale identiteit, employer branding en visuele beïnvloeding.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">2.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">ICT skills</h3><p class="score-text">Problemen herformuleren in data, processen, visualisaties en digitale oplossingen.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">3.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Flexibility & adaptability</h3><p class="score-text">Blijven bewegen bij verandering: verhuizing, reorganisatie, werkdruk, gezondheid en nieuwe contexten.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">3.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Initiative & self-direction</h3><p class="score-text">Zelf richting geven aan studie, loopbaan en leerdoelen, ook wanneer de route niet vanzelf spreekt.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">3.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Social & cross-cultural skills</h3><p class="score-text">Schakelen tussen mensen, achtergronden, belangen, professionele culturen en machtsposities.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">3.4</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Leadership</h3><p class="score-text">Leiderschap zonder formele macht: richting geven, consensus bouwen en leren organiseren.</p></div>
     </div>
   </div>
 </section>
@@ -730,11 +750,29 @@ footer span {
     <div class="tl-header">De bouwtekening — chronologisch</div>
     <div class="tl-items">
       <div class="tl-item">
+        <div class="tl-jaar">Tot 2019</div>
+        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
+        <div class="tl-content">
+          <div class="tl-titel">Zeeuws-Vlaanderen — mijn vertrekpunt</div>
+          <div class="tl-tekst">Geboren en opgegroeid in Zeeuws-Vlaanderen, in een Surinaams-Nederlands gezin. Hier ontstond mijn vermogen om tussen perspectieven te bewegen en verschillen niet als probleem, maar als informatie te zien.</div>
+          <span class="tl-badge">Persoonlijke basis</span>
+        </div>
+      </div>
+      <div class="tl-item accent">
+        <div class="tl-jaar">2019</div>
+        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
+        <div class="tl-content">
+          <div class="tl-titel">Verhuizing naar Limburg — voor de liefde</div>
+          <div class="tl-tekst">Een nieuw netwerk, een nieuwe regio en een nieuwe professionele omgeving. Ik moest opnieuw beginnen en ontdekte dat aanpassingsvermogen ook een vorm van leiderschap is.</div>
+          <span class="tl-badge">Kantelpunt</span>
+        </div>
+      </div>
+      <div class="tl-item">
         <div class="tl-jaar">2018–2019</div>
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
-          <div class="tl-titel">HR Stagiaire — Manpower Terneuzen</div>
-          <div class="tl-tekst">Eerste stap in HR. Operationele ondersteuning, eerste adviesrol. Ver van huis — en voor het eerst mezelf opnieuw neerzetten. De fundering wordt gelegd.</div>
+          <div class="tl-titel">HR-stagiaire — Manpower Terneuzen</div>
+          <div class="tl-tekst">Mijn eerste echte HR-context. Ik leerde wat operationeel HR betekent: zorgvuldig werken, schakelen tussen kandidaten en klantvragen en professioneel communiceren in een commerciële omgeving.</div>
           <span class="tl-badge">Stage</span>
         </div>
       </div>
@@ -743,7 +781,7 @@ footer span {
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
           <div class="tl-titel">HR-medewerker — Mise en Place</div>
-          <div class="tl-tekst">Contractbeheer, verloning, aanspreekpunt. Uitvoerend werk — maar ik wil begrijpen waaróm beleid is zoals het is.</div>
+          <div class="tl-tekst">Contractbeheer, verloning en aanspreekpunt zijn voor medewerkers. Ik werd sterker in nauwkeurigheid en procesdenken, maar merkte ook dat ik niet alleen wilde uitvoeren: ik wilde begrijpen waarom processen zo waren ingericht.</div>
           <span class="tl-badge">Uitvoerend HR</span>
         </div>
       </div>
@@ -752,7 +790,7 @@ footer span {
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
           <div class="tl-titel">Intercedent → Senior Intercedent — Timing</div>
-          <div class="tl-tekst">Key user, stagebegeleider, jobcoach. CBS-implementatie. Kantelpunt: "laat meer van jezelf horen." Die woorden worden de volgende verdieping.</div>
+          <div class="tl-tekst">Ik groeide door naar senior, werd key user, stagebegeleider en jobcoach. De feedback "laat meer van jezelf horen" werd een belangrijk leerpunt: mijn deskundigheid had pas waarde als ik die ook zichtbaar durfde in te brengen.</div>
           <span class="tl-badge">Groei</span>
         </div>
       </div>
@@ -761,8 +799,8 @@ footer span {
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
           <div class="tl-titel">Start Business Studies deeltijd — Zuyd Hogeschool</div>
-          <div class="tl-tekst">Bewuste keuze: niet omdat het moest, maar omdat ik wilde bouwen op een sterkere basis. De opleiding als nieuw draagvlak.</div>
-          <span class="tl-badge">Kantelpunt</span>
+          <div class="tl-tekst">Ik koos bewust voor een opleiding naast mijn werk. Niet omdat het moest, maar omdat ik mijn praktijkervaring wilde verdiepen met bedrijfskundige en HRM-theorie.</div>
+          <span class="tl-badge">Studiekeuze</span>
         </div>
       </div>
       <div class="tl-item">
@@ -770,16 +808,16 @@ footer span {
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
           <div class="tl-titel">HR Adviseur — LIOF</div>
-          <div class="tl-tekst">Reorganisatie, mijn eigen functie vervalt. Ik blijf professioneel doorwerken. Employer branding, HR-analytics, strategische personeelsplanning. Van uitvoerend naar adviserend.</div>
+          <div class="tl-tekst">Bij LIOF kwam ik dichter bij strategisch HR: reorganisatie, employer branding, HR-analytics, strategische personeelsplanning en organisatieontwikkeling. Tegelijkertijd verviel mijn eigen functie door de reorganisatie. Ik leerde professioneel blijven handelen terwijl het proces mij persoonlijk raakte.</div>
           <span class="tl-badge">Strategisch HR</span>
         </div>
       </div>
       <div class="tl-item accent">
-        <div class="tl-jaar">Dec 2024 – nu</div>
+        <div class="tl-jaar">Dec 2025 – nu</div>
         <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
         <div class="tl-content">
           <div class="tl-titel">HR Adviseur — MSC Laurentius, Roermond</div>
-          <div class="tl-tekst">150 medisch specialisten, vrijgevestigde vakgroepen, hoge autonomie. Scriptie leeft in de praktijk. De blauwdruk wordt gebouw.</div>
+          <div class="tl-tekst">Een complexe professionele organisatie met medisch specialisten, vakgroepen, bestuurlijke verhoudingen en hoge autonomie. Hier komt mijn scriptiethema letterlijk tot leven: hoe positioneer je HR als strategische businesspartner van het bestuur?</div>
           <span class="tl-badge">Heden</span>
         </div>
       </div>
@@ -793,41 +831,32 @@ footer span {
     <div class="fase-kop fade-up">
       <div>
         <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--geel);"></span>01 — Vóór de opleiding</div>
-        <h2 class="fase-h2">De eerste laag van het fundament</h2>
+        <h2 class="fase-h2">Sterk in aanpakken, zoekend naar onderbouwing</h2>
       </div>
       <div class="fase-kop-rechts">
-        <p>Wie was ik voordat Business Studies begon? Een eerlijk overzicht van mijn beginpunt — per competentie, zonder opsmuk.</p>
+        <p>Voordat ik Business Studies begon, had ik al praktijkervaring. Ik kon veel oplossen, maar deed dat vooral intuïtief. De opleiding gaf mij taal, theorie en structuur.</p>
       </div>
     </div>
+
+    <p class="fase-body-p fade-up">Vóór de opleiding was ik vooral een doener. Ik werkte hard, voelde verantwoordelijkheid en loste problemen graag snel op. Dat paste goed bij mijn rollen in de uitzend- en HR-praktijk, waar tempo, nauwkeurigheid en klantgerichtheid belangrijk zijn. Tegelijkertijd merkte ik dat ik bij complexere vraagstukken vaak nog miste wat ik nu wél heb: een theoretisch kader om situaties te analyseren.</p>
+    <p class="fase-body-p fade-up">Mijn persoonlijke achtergrond hielp mij in samenwerking en communicatie. Omdat ik gewend was om tussen verschillende werelden te bewegen — Zeeuws-Vlaanderen, een Surinaams-Nederlands gezin, later Limburg — kon ik mij relatief makkelijk aanpassen aan verschillende mensen. Maar professioneel bleef ik soms nog te voorzichtig. Ik voelde vaak wel wat nodig was, maar sprak dat niet altijd uit.</p>
 
     <div class="comp-grid fade-up">
-      <div class="comp-card c-geel">
-        <div class="comp-kop"><span class="comp-naam">1.1 Critical thinking &amp; problem solving</span><span class="comp-pct">10,0%</span></div>
-        <p class="comp-tekst">Bij Timing loste ik dagelijks problemen op — planningsproblemen, verzuimvraagstukken, klantissues. Maar ik deed het intuïtief. Geen analytisch kader, geen theorie om op terug te vallen. Sterk in de uitvoering, maar ik plaatste problemen nog niet in een breder organisatieperspectief.</p>
-        <span class="comp-tag">Timing / Manpower stage</span>
-      </div>
-      <div class="comp-card c-geel">
-        <div class="comp-kop"><span class="comp-naam">1.2 Creative thinking</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Grafisch ontwerp was altijd al mijn uitlaatklep. Ik had een aangeboren gevoel voor esthetiek en compositie. Maar creatief denken als professionele competentie — dat was nog niet bewust. Het zat er wel in, maar ik had het nog niet geleerd in te zetten als instrument voor organisatieverandering.</p>
-        <span class="comp-tag">Achtergrond grafisch ontwerp</span>
-      </div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.1 Critical thinking & problem solving</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Bij Timing, Manpower en Mise en Place loste ik veel praktische problemen op: personeelsplanning, contractvragen, verloning, verzuim en klantissues. Mijn kracht lag in actiegerichtheid. Mijn ontwikkelpunt was dat ik nog weinig afstand nam om aannames te onderzoeken of een probleem in breder organisatieperspectief te plaatsen.</p><span class="comp-tag">Van oplossen naar analyseren</span></div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.2 Creative thinking</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Grafisch ontwerp was al jaren een hobby. Ik maakte graag dingen mooier, duidelijker en visueler. Pas later begreep ik dat dit meer was dan creativiteit: het is een manier om complexe informatie toegankelijk te maken en mensen mee te nemen in een verhaal.</p><span class="comp-tag">Grafisch ontwerp als basis</span></div>
     </div>
     <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-geel">
-        <div class="comp-kop"><span class="comp-naam">1.3 Collaboration</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Samenwerken deed ik al volop. Als intercedent bij Timing vervulde ik extra rollen als jobcoach en stagebegeleider. Ik leerde wanneer je hulp moet vragen — en wanneer je die moet aanbieden. Maar ik opereerde nog grotendeels binnen bekende structuren en hiërarchieën.</p>
-        <span class="comp-tag">Timing: meerdere rollen</span>
-      </div>
-      <div class="comp-card c-geel">
-        <div class="comp-kop"><span class="comp-naam">1.4 Communication</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Dit was mijn blinde vlek. Effectief één op één, maar klein in groepssituaties. "Laat meer van jezelf horen" was geen eenmalige opmerking — het was een patroon. Mijn communicatie was vakkundig maar terughoudend. De bangheid van de keukentafel was nooit helemaal verdwenen.</p>
-        <span class="comp-tag">Kantelpunt: Timing-feedback</span>
-      </div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.3 Collaboration</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Samenwerken deed ik al veel, onder andere als intercedent, jobcoach en stagebegeleider. Ik kon anderen ondersteunen en voelde snel aan wat iemand nodig had. Mijn samenwerking was vooral praktisch en relationeel; ik was nog minder bewust bezig met belangen, posities en organisatiedoelen.</p><span class="comp-tag">Samenwerken in uitvoering</span></div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.4 Communication</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Communicatie was tegelijk een kracht en een leerpunt. Eén op één kon ik goed aansluiten, maar in groepen of richting leidinggevenden hield ik mij soms in. De feedback "laat meer van jezelf horen" raakte precies dat punt: mijn kennis was aanwezig, maar nog niet altijd zichtbaar.</p><span class="comp-tag">Feedback als kantelpunt</span></div>
     </div>
 
-    <div class="fase-quote fade-up">
-      "Laat meer van jezelf horen." Die woorden werden de volgende verdieping.
+    <div class="reflectie-grid fade-up">
+      <div class="reflectie-card"><h4>Wat ik toen al kon</h4><p>Hard werken, verantwoordelijkheid nemen, praktisch oplossen, mensen aanvoelen en creatieve middelen inzetten.</p></div>
+      <div class="reflectie-card"><h4>Wat nog ontbrak</h4><p>Theoretische onderbouwing, strategische taal, lef om mijn advies zichtbaar te maken en afstand nemen van de waan van de dag.</p></div>
+      <div class="reflectie-card"><h4>Wat ik nodig had</h4><p>Een opleiding die praktijkervaring koppelde aan bedrijfskundig denken, HRM-theorie en professionele reflectie.</p></div>
     </div>
+
+    <div class="fase-quote fade-up">"Ik was al aan het bouwen, maar ik had nog geen volledige bouwtekening."</div>
   </div>
 </section>
 
@@ -837,45 +866,30 @@ footer span {
     <div class="fase-kop fade-up">
       <div>
         <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--koraal);"></span>02 — Tijdens de opleiding</div>
-        <h2 class="fase-h2">De verdiepingen worden gebouwd</h2>
+        <h2 class="fase-h2">Van uitvoering naar professioneel advies</h2>
       </div>
       <div class="fase-kop-rechts">
-        <p>Van uitvoerend naar adviserend. Van intuïtief naar onderbouwd. LIOF, reorganisatie, mijn eigen functie die vervalt — en ik die blijf staan.</p>
+        <p>Tijdens de opleiding leerde ik theorie niet zien als iets voor school, maar als lens om praktijkvraagstukken scherper te begrijpen.</p>
       </div>
     </div>
 
-    <p class="fase-body-p fade-up">In maart 2024 maakte ik de stap naar <strong>LIOF</strong> — de regionale ontwikkelingsmaatschappij van Limburg. Voor het eerst stond ik niet naast het beleid, maar midden erin. Organisatieontwikkeling, duurzame inzetbaarheid, vitaliteit, verzuim, HR-analytics, strategische personeelsplanning.</p>
-    <p class="fase-body-p fade-up">Al snel bleek dat LIOF een ingrijpende <strong>reorganisatie</strong> doormaakte. Van 17 naar 7 à 8 leidinggevenden. Afspiegelingsbeginsel toepassen. Transitievergoedingen berekenen — meer dan €461.000. En dit alles terwijl <strong>mijn eigen positie ter discussie stond</strong>. Ik bleef doorwerken. Niet omdat het moest — omdat ik er stond.</p>
+    <p class="fase-body-p fade-up">Tijdens Business Studies veranderde mijn manier van kijken. Waar ik eerder dacht in taken en oplossingen, leerde ik denken in systemen, belangen, processen en strategie. Vooral de combinatie van werken en studeren maakte mijn ontwikkeling sterk: bijna elke theorie kon ik direct toetsen in de praktijk.</p>
+    <p class="fase-body-p fade-up">Bij <strong>LIOF</strong> kwam dat scherp naar voren. Ik werkte aan HR-thema’s als employer branding, strategische personeelsplanning, HR-data en organisatieontwikkeling. Tegelijkertijd maakte de organisatie een reorganisatie door, waarbij ook mijn eigen functie kwam te vervallen. Dat vroeg om professionaliteit onder druk: zorgvuldig blijven werken, omgaan met onzekerheid en de organisatie blijven ondersteunen terwijl ik zelf onderdeel was van de verandering.</p>
+    <p class="fase-body-p fade-up">Bij <strong>MSC Laurentius</strong> kreeg mijn ontwikkeling een nieuwe laag. Ik werk in een professionele organisatie met medisch specialisten, vakgroepen en bestuurlijke besluitvorming. Mijn scriptie over de positionering van HR als strategische businesspartner is daardoor niet alleen een schoolopdracht, maar een vraagstuk uit mijn dagelijkse werkpraktijk.</p>
 
     <div class="comp-grid fade-up">
-      <div class="comp-card c-koraal">
-        <div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Bij LIOF bouwde ik van idee tot implementatie de volledige 'Werken bij'-site met ATS-integratie — 50% kostenbesparing op recruitmentmarketing. Bij MSC Laurentius een interactieve e-learning voor medisch specialisten (SPIKES, SBAR). Innovatie is iets bouwen dat daarna blijft werken zonder dat jij erbij bent.</p>
-        <span class="comp-tag">LIOF LU4 / MSC e-learning</span>
-      </div>
-      <div class="comp-card c-koraal">
-        <div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10,0%</span></div>
-        <p class="comp-tekst">Mijn scriptie vereiste strenge bronselectie: Mooijman, Boxall & Purcell, Pol, Mintzberg. Bronnen niet alleen vinden maar beoordelen op recenticiteit en toepasbaarheid. Bij LIOF gebruikte ik HR-data structureel voor rapportages aan directie en MT.</p>
-        <span class="comp-tag">Scriptie / LIOF HR analytics</span>
-      </div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Bij LIOF werkte ik aan employer branding en digitale recruitmentprocessen. Bij MSC Laurentius denk ik mee over e-learning, compliance-informatie en professionalisering van HR-processen. Innovatie betekent voor mij niet alleen iets nieuws bedenken, maar vooral zorgen dat het werkt in de context waarin mensen het moeten gebruiken.</p><span class="comp-tag">Van idee naar toepassing</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Mijn scriptie vroeg om het vinden, selecteren en wegen van bronnen. Ik gebruikte onder andere Mintzberg, Ulrich, Boselie, Pol, Boxall & Purcell en Galbraith om de HR-positionering binnen MSC Laurentius te analyseren. Ik leerde niet alleen bronnen verzamelen, maar ook beoordelen welke theorie past bij welke context.</p><span class="comp-tag">Scriptie / literatuuronderzoek</span></div>
     </div>
     <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-koraal">
-        <div class="comp-kop"><span class="comp-naam">2.2 Media literacy</span><span class="comp-pct">10,0%</span></div>
-        <p class="comp-tekst">Employer branding bij LIOF: de digitale identiteit van de organisatie bewust vormgeven via LinkedIn en werken-bij-site. Dit portfolio zelf is een uitdrukking van deze competentie — bewust gekozen voor een digitale, visuele vorm. De blauwdruk is ook een medium.</p>
-        <span class="comp-tag">LIOF employer branding / dit portfolio</span>
-      </div>
-      <div class="comp-card c-koraal">
-        <div class="comp-kop"><span class="comp-naam">2.3 ICT skills</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">CAPP12-compliance-analyse voor MSC: data kruisen met de ledenlijst, per vakgroep percentages berekenen voor de Algemene Vergadering. ATS-implementatie bij LIOF. Scriptie conceptueel model als SVG en DrawingML. Dit portfolio: gebouwd in HTML/CSS, geen template.</p>
-        <span class="comp-tag">MSC compliance / scriptie model</span>
-      </div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.2 Media literacy</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Door mijn grafische interesse werd ik mij steeds bewuster van de kracht van vorm. Een boodschap landt anders wanneer tekst, beeld en structuur kloppen. Dat zie je in vacatureteksten, employer branding, LinkedIn-communicatie en in dit portfolio zelf: mijn digitale identiteit is onderdeel van mijn professionele verhaal.</p><span class="comp-tag">Digitale identiteit</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.3 ICT skills</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik leerde informatie ordenen in systemen: van ATS-processen tot HR-data, compliance-overzichten en visuele modellen voor mijn scriptie. Ook deze website is een voorbeeld: ik vertaal een reflectieopdracht naar HTML, CSS, interactie en visuele navigatie.</p><span class="comp-tag">Data / website / visualisatie</span></div>
     </div>
 
     <div class="fase-theorie fade-up">
-      <div class="ft-label">Theoretisch kader — Mooijman (2025) &amp; Boxall en Purcell (2022)</div>
-      <p>Mooijman beschrijft een maturiteitsmodel voor HR-organisaties richting excellentie — van operationele uitvoering naar strategische waardecreatie, via 9½ bouwstenen. Boxall en Purcell laten zien dat HRM gelijktijdig bijdraagt aan kosteneffectiviteit, sociale legitimiteit en langetermijnadaptiviteit. Ik herken deze spanning dagelijks: de balans tussen de kleine HR-vragen van vandaag en de strategische blauwdruk van morgen.</p>
-      <cite>Mooijman (2025). De excellente HR-organisatie. / Boxall &amp; Purcell (2022). Strategy and Human Resource Management.</cite>
+      <div class="ft-label">Theoretisch kader — Mintzberg, Ulrich, Boselie en Galbraith</div>
+      <p>Mintzberg helpt mij de professionele organisatie van MSC Laurentius te begrijpen: veel autonomie bij professionals en besluitvorming die niet altijd lineair loopt. Ulrich geeft taal aan de verschuiving van HR-uitvoerder naar businesspartner. Boselie laat zien dat HR-waarde ontstaat wanneer beleid niet alleen bedoeld is, maar ook goed wordt geïmplementeerd en ervaren. Galbraith helpt om organisaties niet als losse onderdelen te zien, maar als samenhang tussen strategie, structuur, processen, mensen en beloning.</p>
+      <cite>Mintzberg; Ulrich; Boselie; Galbraith — toegepast in mijn scriptieonderzoek.</cite>
     </div>
   </div>
 </section>
@@ -885,42 +899,30 @@ footer span {
   <div class="fase-inner">
     <div class="fase-kop fade-up">
       <div>
-        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--roze);"></span>02b — Life &amp; career skills</div>
-        <h2 class="fase-h2">De constructeur achter de tekening</h2>
+        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--roze);"></span>02b — Life & career skills</div>
+        <h2 class="fase-h2">De professional achter de functie</h2>
       </div>
       <div class="fase-kop-rechts">
-        <p>Een blauwdruk zonder bouwer is een vel papier. Dit zijn de competenties die laten zien wie er achter de tekeningen staat.</p>
+        <p>Professionele ontwikkeling gaat niet alleen over kennis. Het gaat ook over veerkracht, zelfsturing, positie innemen en verbinding maken.</p>
       </div>
     </div>
 
     <div class="comp-grid fade-up">
-      <div class="comp-card c-roze">
-        <div class="comp-kop"><span class="comp-naam">3.1 Flexibility &amp; adaptability</span><span class="comp-pct">10,0%</span></div>
-        <p class="comp-tekst">Mijn eigen positie bij LIOF verviel door de reorganisatie. Ik mocht meewerken aan een proces dat mij persoonlijk trof — en deed het professioneel, nauwkeurig, met integriteit. Mijn hEDS-diagnose leerde me al jaren eerder bouwen op wankele grond. Flexibiliteit is geen soft skill — het is structuurbeheersing onder druk.</p>
-        <span class="comp-tag">LIOF reorganisatie / hEDS-diagnose</span>
-      </div>
-      <div class="comp-card c-roze">
-        <div class="comp-kop"><span class="comp-naam">3.2 Initiative &amp; self-direction</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Ik koos bewust voor een deeltijdopleiding naast een fulltime baan. In LU9 beschreef ik hoe ik "laat meer van jezelf horen" heb omgezet in bewuste gedragsverandering: meer ruimte nemen, adviezen uitspreken vóórdat ze gevraagd worden. De bouwer die haar eigen tekening bijstelt.</p>
-        <span class="comp-tag">LU9 zelfsturing / studiekeuze</span>
-      </div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.1 Flexibility & adaptability</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Mijn verhuizing naar Limburg, de combinatie van werken en studeren, gezondheidsuitdagingen en een reorganisatie bij LIOF hebben mijn flexibiliteit gevormd. Ik heb geleerd dat aanpassingsvermogen niet betekent dat je alles maar ondergaat. Het betekent dat je bewust keuzes maakt binnen veranderende omstandigheden.</p><span class="comp-tag">Aanpassen zonder jezelf kwijt te raken</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.2 Initiative & self-direction</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik koos zelf voor een deeltijdopleiding naast mijn werk, stuurde mijn eigen leerproces en zocht steeds opdrachten die aansloten bij mijn praktijk. In plaats van wachten op duidelijkheid, leerde ik richting geven: aan mijn studie, mijn loopbaan en mijn professionele identiteit.</p><span class="comp-tag">Eigen regie</span></div>
     </div>
     <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-roze">
-        <div class="comp-kop"><span class="comp-naam">3.3 Social &amp; cross-cultural skills</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Ik ben opgegroeid met Surinaamse wortels in een Nederlandse omgeving — al vroeg leerde ik schakelen tussen werelden en culturele codes. Bij MSC werk ik met medisch specialisten met sterke professionele autonomie. Adviseren zonder formele macht, verbinden zonder forceren. Cross-culturele sensitiviteit als bouwmateriaal.</p>
-        <span class="comp-tag">Surinaamse achtergrond / MSC stakeholders</span>
-      </div>
-      <div class="comp-card c-roze">
-        <div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Leiderschap zonder formele titel — dat is de kern van HR-advieswerk. Bij LIOF faciliteerde ik een HR-teamsessie om spanning te benoemen en structuur te brengen. Ik organiseerde kennissessies voor leidinggevenden. Mijn scriptie onderzoekt hoe HR een lerende organisatie versterkt. Leiderschap: de architect die niet zelf het huis bewoont, maar het wel ontwerpt.</p>
-        <span class="comp-tag">LU9 / LIOF HR-teamsessie / scriptie</span>
-      </div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.3 Social & cross-cultural skills</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn Surinaams-Nederlandse achtergrond, mijn verhuizing van Zeeuws-Vlaanderen naar Limburg en mijn werk in verschillende organisaties hebben mij geleerd dat context ertoe doet. Bij MSC Laurentius werk ik met medisch specialisten, bestuurders, HRM LZR en andere stakeholders. Ik moet belangen herkennen, taal aanpassen en vertrouwen opbouwen zonder formele macht.</p><span class="comp-tag">Schakelen tussen werelden</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn leiderschap ontwikkelde zich vooral zonder formele titel. Als HR-adviseur geef ik richting door vragen te stellen, structuur aan te brengen, mensen mee te nemen en besluiten voor te bereiden. Leiderschap is voor mij steeds meer: overzicht creëren zodat anderen beter kunnen handelen.</p><span class="comp-tag">Leiderschap zonder titel</span></div>
     </div>
 
-    <div class="fase-quote fade-up">
-      "Mijn eigen functie verviel. Ik bleef doorwerken. De bouwer verlaat de bouwplaats niet zomaar."
+    <div class="reflectie-grid fade-up">
+      <div class="reflectie-card"><h4>Denken</h4><p>Ik denk minder vanuit losse taken en meer vanuit samenhang: wat betekent dit voor strategie, structuur, gedrag en besluitvorming?</p></div>
+      <div class="reflectie-card"><h4>Handelen</h4><p>Ik durf vaker positie in te nemen, mijn advies te onderbouwen en eerder zichtbaar te worden in plaats van af te wachten.</p></div>
+      <div class="reflectie-card"><h4>Presteren</h4><p>Ik lever professioneler resultaat omdat ik niet alleen uitvoer, maar vooraf analyseer wat nodig is voor impact.</p></div>
     </div>
+
+    <div class="fase-quote fade-up">"Ik heb geleerd dat professioneel groeien niet betekent dat je iemand anders wordt, maar dat je bewuster inzet wie je al bent."</div>
   </div>
 </section>
 
@@ -933,61 +935,41 @@ footer span {
         <h2 class="fase-h2">De volgende bouwtekening ligt klaar</h2>
       </div>
       <div class="fase-kop-rechts">
-        <p>Een blauwdruk is nooit af — er is altijd een volgende fase. Dit is hoe ik verder bouw, en wat er op mijn tekentafel ligt.</p>
+        <p>Na de opleiding wil ik mijn ontwikkeling niet afronden, maar verdiepen. De basis is gelegd; nu gaat het om verstevigen, verbreden en strategisch toepassen.</p>
       </div>
     </div>
 
-    <p class="fase-body-p fade-up">Ik sluit de opleiding af terwijl ik midden in de meest complexe rol zit die ik ooit heb gehad. Bij <strong>MSC Laurentius</strong> werk ik voor een coöperatie van zo'n 150 medisch specialisten. HR staat hier nog aan het begin van haar strategische reis. Mijn scriptie gaat precies daarover: hoe repositioneer je de HR-functie van operationeel uitvoerend naar strategisch adviserend?</p>
-    <p class="fase-body-p fade-up">Wat ik wil bouwen: een <strong>HR manager-positie</strong> waar ik beleid maak dat écht past bij de organisatie, een HR-team ontwikkel, en strategische vraagstukken vertaal naar mensen en structuren.</p>
+    <p class="fase-body-p fade-up">Ik rond de opleiding af terwijl ik werk in de meest complexe HR-context die ik tot nu toe heb gekend. Bij <strong>MSC Laurentius</strong> werk ik binnen een medisch specialistische coöperatie, dicht op bestuur, vakgroepen en ziekenhuiscontext. Dit vraagt om meer dan HR-kennis. Het vraagt om bestuurlijke sensitiviteit, strategisch inzicht, zorgvuldige communicatie en het vermogen om professionals mee te nemen zonder hiërarchische sturing.</p>
+    <p class="fase-body-p fade-up">Mijn ambitie is om verder te groeien richting een rol waarin ik HR strategisch kan positioneren en ontwikkelen. Niet alleen beleid maken, maar ook een HR-functie bouwen die bijdraagt aan organisatieontwikkeling, professionele samenwerking en besluitvorming. De opleiding heeft mij geleerd dat ik daar niet op hoef te wachten tot iemand mij die positie geeft. Ik kan er nu al naar handelen.</p>
 
     <div class="toekomst-grid fade-up">
       <div class="toekomst-kaart tk-meeneem">
         <div class="tk-kop">Materiaal dat ik meeneem</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Strategisch HR-kader (Mooijman, Boxall & Purcell, Pol)</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Vermogen om theorie en praktijk te verbinden</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Zelfsturing onder hoge druk</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Communiceren met lef — mezelf laten horen</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Creatief denken als professioneel instrument</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Cross-culturele sensitiviteit als kracht</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Strategisch HR-denken en bedrijfskundige taal.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Het vermogen om theorie en praktijk met elkaar te verbinden.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Creativiteit als professioneel middel om complexe informatie zichtbaar te maken.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Zelfsturing onder druk, ook wanneer omstandigheden persoonlijk raken.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Cross-culturele sensitiviteit en het vermogen om tussen werelden te schakelen.</div>
       </div>
       <div class="toekomst-kaart tk-ontwikkel">
-        <div class="tk-kop">Wat nog verstevigd moet worden</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Niet te snel in actie — eerst anderen meenemen</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Loslaten van controle in processen die niet van mij zijn</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Sterker worden in bestuurlijk en politiek navigeren</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Formele leiderschapservaring opbouwen</div>
+        <div class="tk-kop">Wat ik verder wil verstevigen</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Nog sterker worden in bestuurlijk en politiek navigeren.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Niet te snel zelf oplossen, maar anderen eerder meenemen in eigenaarschap.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Mijn adviesrol zichtbaarder innemen in grotere groepen.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Formele leiderschapservaring opbouwen en mijn stijl verder ontwikkelen.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Blijven bewaken dat ambitie en belastbaarheid in balans blijven.</div>
       </div>
     </div>
 
     <div class="fase-theorie fade-up">
-      <div class="ft-label">Theoretisch kader — Pol (2011): HRM-kubus en vier HR-rollen</div>
-      <p>Pol beschrijft vier rollen voor de HR-professional: uitvoerder, adviseur, partner en leider. In mijn loopbaan heb ik bewust de verschuiving gemaakt van uitvoerder naar adviseur, en ik ben op weg naar de partnerrol. De HRM-kubus laat zien dat HR waarde creëert op drie assen: strategisch vs. operationeel, intern vs. extern, individueel vs. organisatiegericht. Elk as is een draagmuur in de blauwdruk.</p>
-      <cite>Pol, M. (2011). De HR-professional als businesspartner. Kluwer.</cite>
+      <div class="ft-label">Theoretisch kader — Pol en strategische HRM</div>
+      <p>Pol beschrijft HR-rollen zoals uitvoerder, adviseur, partner en leider. Mijn loopbaan laat een duidelijke verschuiving zien van uitvoerende HR naar een adviserende en steeds strategischere rol. Strategische HRM vraagt dat HR niet alleen reageert op vragen, maar actief bijdraagt aan organisatiedoelen, mensontwikkeling en besluitvorming. Dat is de richting waarin ik na de opleiding verder wil groeien.</p>
+      <cite>Pol; Boxall & Purcell; Ulrich — strategische HRM en HR-rollen.</cite>
     </div>
 
     <div class="comp-grid fade-up" style="margin-top:3rem;">
-      <div class="comp-card c-paars">
-        <div class="comp-kop"><span class="comp-naam">1.1 Critical thinking — toekomst</span><span class="comp-pct">10,0%</span></div>
-        <p class="comp-tekst">Van intuïtief naar analytisch: vraagstukken theoretisch onderbouwen én de aannames erachter blootleggen. In mijn scriptie doe ik dat al — nu wil ik het structureel inbedden in mijn adviseurspraktijk bij MSC.</p>
-        <span class="comp-tag">Scriptie MSC / bestuurlijk advies</span>
-      </div>
-      <div class="comp-card c-paars">
-        <div class="comp-kop"><span class="comp-naam">1.2 Creative thinking — toekomst</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Mijn grafische achtergrond is inmiddels bewust professioneel inzetbaar. Dit portfolio is daar een voorbeeld van. Na de opleiding wil ik blijven vernieuwen — in communicatie, HR-concepten, en de manier waarop ik complexe informatie presenteer.</p>
-        <span class="comp-tag">Dit portfolio / employer branding</span>
-      </div>
-    </div>
-    <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-paars">
-        <div class="comp-kop"><span class="comp-naam">1.3 Collaboration — toekomst</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Samenwerking opzoeken buiten mijn eigen discipline — met bestuur, medisch management, financiën. De vakgroepstructuur van MSC vraagt om een HR die verbindt over grenzen heen. Een architect werkt altijd samen met de aannemer.</p>
-        <span class="comp-tag">MSC vakgroepen / bestuur</span>
-      </div>
-      <div class="comp-card c-paars">
-        <div class="comp-kop"><span class="comp-naam">1.4 Communication — toekomst</span><span class="comp-pct">7,5%</span></div>
-        <p class="comp-tekst">Van stil naar zichtbaar. Van terughoudend naar aanwezig. Die transformatie is ingezet — maar ik ben er nog niet. Ik wil mezelf verder ontwikkelen als spreker en adviseur die complexe boodschappen helder overbrengt aan diverse doelgroepen.</p>
-        <span class="comp-tag">MSC communicatie / bestuurlijk advies</span>
-      </div>
+      <div class="comp-card c-paars"><div class="comp-kop"><span class="comp-naam">Mijn professionele belofte</span><span class="comp-pct">Na de opleiding</span></div><p class="comp-tekst">Ik wil HR-positionering niet alleen onderzoeken, maar in de praktijk helpen bouwen. Mijn kracht ligt in het verbinden van mensen, structuur, taal en vorm. Ik wil complexe HR-vraagstukken toegankelijk maken, zodat bestuurders en professionals betere keuzes kunnen maken.</p><span class="comp-tag">Strategisch HR bouwen</span></div>
+      <div class="comp-card c-paars"><div class="comp-kop"><span class="comp-naam">Mijn ontwikkelvraag</span><span class="comp-pct">Vooruitblik</span></div><p class="comp-tekst">Hoe blijf ik mezelf zichtbaar en stevig positioneren als HR-professional, zonder mijn verbindende stijl te verliezen? Dat is de vraag die ik meeneem na deze opleiding.</p><span class="comp-tag">Zichtbaarheid en stevigheid</span></div>
     </div>
   </div>
 </section>
@@ -995,7 +977,6 @@ footer span {
 <!-- ── AFSLUITING ── -->
 <section class="afsluiting" id="afsluiting">
   <div class="afsluiting-glow"></div>
-
   <div class="blauwdruk-icon fade-up">
     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="10" width="60" height="60" stroke="white" stroke-width="1.5"/>
@@ -1009,39 +990,17 @@ footer span {
     </svg>
   </div>
 
-  <h2 class="afsluiting-h2 fade-up">
-    De blauwdruk<br>is nooit <em>af</em>
-  </h2>
+  <h2 class="afsluiting-h2 fade-up">De blauwdruk<br>is nooit <em>af</em></h2>
+  <p class="afsluiting-tekst fade-up">Deze journey laat zien waar ik vandaan kom, hoe ik mij tijdens de opleiding heb ontwikkeld en waar ik naartoe wil. Ik ben gestart als iemand die vooral hard werkte en oploste. Ik rond af als HR-professional die analyseert, onderbouwt, ontwerpt, communiceert en steeds bewuster positie inneemt.</p>
 
-  <p class="afsluiting-tekst fade-up">
-    Elke goede architect weet het: de mooiste gebouwen hebben altijd een volgende fase. Ik heb gebouwd — op wankele grond, onder druk, in onzekerheid. En ik blijf bouwen. Maar ik ben benieuwd naar wat jij ziet wat ik nog niet heb getekend.
-  </p>
-
-  <div class="vraag-box fade-up">
-    <p>"Welke verdieping mis jij nog in de blauwdruk van <em>Raisa</em>?"</p>
-  </div>
+  <div class="vraag-box fade-up"><p>"Welke verdieping voeg ik hierna toe aan mijn professionele blauwdruk?"</p></div>
 
   <div class="meta-grid fade-up">
-    <div class="meta-item">
-      <div class="meta-label">Student</div>
-      <div class="meta-waarde">Raisa Ramkhelawan</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Opleiding</div>
-      <div class="meta-waarde">Business Studies HRM, deeltijd</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Instelling</div>
-      <div class="meta-waarde">Zuyd Hogeschool, Heerlen</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Werkgever</div>
-      <div class="meta-waarde">MSC Laurentius, Roermond</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-label">Jaar</div>
-      <div class="meta-waarde">2026</div>
-    </div>
+    <div class="meta-item"><div class="meta-label">Student</div><div class="meta-waarde">Raisa Ramkhelawan</div></div>
+    <div class="meta-item"><div class="meta-label">Opleiding</div><div class="meta-waarde">Business Studies HRM, deeltijd</div></div>
+    <div class="meta-item"><div class="meta-label">Instelling</div><div class="meta-waarde">Zuyd Hogeschool, Heerlen</div></div>
+    <div class="meta-item"><div class="meta-label">Werkgever</div><div class="meta-waarde">MSC Laurentius, Roermond</div></div>
+    <div class="meta-item"><div class="meta-label">Jaar</div><div class="meta-waarde">2026</div></div>
   </div>
 </section>
 
@@ -1054,13 +1013,19 @@ footer span {
 <script>
 window.addEventListener('scroll', () => {
   const h = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+  const progress = h > 0 ? (window.scrollY / h * 100) : 0;
+  document.getElementById('progress').style.width = progress + '%';
 });
+
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('zichtbaar'); obs.unobserve(e.target); }
+    if (e.isIntersecting) {
+      e.target.classList.add('zichtbaar');
+      obs.unobserve(e.target);
+    }
   });
 }, { threshold: 0.08 });
+
 document.querySelectorAll('.fade-up, .tl-item').forEach(el => obs.observe(el));
 </script>
 </body>
