@@ -309,6 +309,13 @@ section { position:relative; }
 .reflectie-card { background:#F4F6F9; border:1px solid var(--lijn); border-radius:10px; padding:1.4rem; }
 .reflectie-card h4 { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; color:var(--blauw); margin-bottom:0.6rem; }
 .reflectie-card p { font-size:0.8rem; line-height:1.7; color:var(--tekst-mid); }
+.bewijs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.5rem 0; }
+.bewijs-card { background:#FFFFFF; border:1px solid rgba(26,58,92,0.1); border-radius:12px; padding:1.35rem; box-shadow:0 2px 12px rgba(26,58,92,0.04); }
+.bewijs-card h4 { font-family:'Syne',sans-serif; font-size:0.92rem; font-weight:700; color:var(--blauw); margin-bottom:0.55rem; }
+.bewijs-card p { font-size:0.8rem; line-height:1.7; color:var(--tekst-mid); font-weight:300; }
+.bewijs-label { display:inline-block; margin-bottom:0.7rem; font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+@media (max-width:980px) { .bewijs-grid { grid-template-columns:1fr; } }
+
 
 .toekomst-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
 .toekomst-kaart { border-radius:12px; padding:1.75rem; border:1px solid var(--lijn); }
@@ -365,6 +372,7 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
   </div>
   <ul class="nav-links">
     <li><a href="#intro">00 Intro</a></li>
+    <li><a href="#format">Format</a></li>
     <li><a href="#criteria">Criteria</a></li>
     <li><a href="#tijdlijn">Tijdlijn</a></li>
     <li><a href="#voor">01 Vóór</a></li>
@@ -422,8 +430,8 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
       <div class="sidebar-nr">00</div>
     </div>
     <div>
-      <p class="body-p fade-up">Ik ben geboren en opgegroeid in <strong>Zeeuws-Vlaanderen</strong>. Daardoor leerde ik al vroeg schakelen tussen perspectieven, gewoontes en manieren van communiceren.</p>
-      <p class="body-p fade-up">In 2019 verhuisde ik naar <strong>Limburg</strong>, voor de liefde. Dat was een grote persoonlijke stap: weg uit mijn vertrouwde omgeving, opnieuw wortelen, een nieuw netwerk opbouwen en mijn weg vinden in een nieuwe regio./p>
+      <p class="body-p fade-up">Ik ben geboren en opgegroeid in <strong>Zeeuws-Vlaanderen</strong>. Opgroeien in een omgeving met verschillende perspectieven heeft mij al vroeg geleerd om goed te kijken, te luisteren en mijn communicatie af te stemmen op de mensen om mij heen.</p>
+      <p class="body-p fade-up">In 2019 verhuisde ik naar <strong>Limburg</strong>, voor de liefde. Dat was een grote persoonlijke stap: weg uit mijn vertrouwde omgeving, opnieuw wennen aan een andere omgeving, een nieuw netwerk opbouwen en mijn weg vinden in een nieuwe regio.</p>
       <div class="inline-quote fade-up">"Mijn journey begon niet op school, maar op het moment dat ik leerde bewegen tussen werelden."</div>
       <p class="body-p fade-up">Later bleek er een naam voor iets wat ik lang had gevoeld: <strong>dyscalculie</strong>. Die diagnose gaf taal aan iets wat ik al wist: ik was niet minder slim, ik moest anders leren. Die ervaring heeft mijn leerhouding gevormd.</p>
       <p class="body-p fade-up">Ook mijn gezondheid heeft invloed gehad. De diagnose <strong>hEDS</strong>, aangevuld met POTS en MCAS, maakte dat ik opnieuw moest leren omgaan met grenzen, energie en onzekerheid.</p>
@@ -436,6 +444,23 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
   </div>
 </section>
 
+<section class="fase fase-02" id="format">
+  <div class="fase-inner">
+    <div class="fase-kop fade-up">
+      <div><div class="fase-kop-id"><span class="kleur-dot" style="background:var(--accent);"></span>00b — Vormkeuze</div><h2 class="fase-h2">Waarom mijn journey een website is</h2></div>
+      <div class="fase-kop-rechts"><p>De vorm van dit portfolio is bewust gekozen. Niet alleen om mijn ontwikkeling te beschrijven, maar ook om te laten zien hoe ik denk, ontwerp en communiceer.</p></div>
+    </div>
+    <p class="fase-body-p fade-up">Mijn moeder is grafisch designer. Daardoor ben ik opgegroeid met vormgeving, compositie, kleur, typografie en het idee dat vorm nooit losstaat van inhoud. Die creatieve basis is altijd onderdeel geweest van hoe ik naar informatie kijk.</p>
+    <p class="fase-body-p fade-up">Juist daarom heb ik ervoor gekozen om mijn journey niet als traditioneel verslag, maar als <strong>interactieve website</strong> vorm te geven. Het gaf mij de ruimte om een stukje creativiteit toe te voegen aan een schoolopdracht en tegelijk te laten zien hoe visuele communicatie kan helpen om ontwikkeling, reflectie en bewijs overzichtelijker te maken.</p>
+    <p class="fase-body-p fade-up">Deze vorm past bij mijn professionele profiel: HR, communicatie, digitale middelen en ontwerp komen samen. De website is daarmee ook een bewijsstuk voor mijn ontwikkeling in creative thinking, media literacy en ICT skills.</p>
+    <div class="bewijs-grid fade-up">
+      <div class="bewijs-card"><span class="bewijs-label">Creative thinking</span><h4>Vorm als inhoud</h4><p>Ik gebruik vormgeving niet als decoratie, maar als manier om mijn professionele ontwikkeling begrijpelijk en aantrekkelijk over te brengen.</p></div>
+      <div class="bewijs-card"><span class="bewijs-label">Media literacy</span><h4>Bewuste digitale identiteit</h4><p>Met dit portfolio presenteer ik mij als HR-professional die inhoud, uitstraling en doelgroepgericht communiceren bewust combineert.</p></div>
+      <div class="bewijs-card"><span class="bewijs-label">ICT skills</span><h4>Zelf bouwen en structureren</h4><p>Door te werken met HTML, CSS, navigatie, animatie en responsive ontwerp vertaal ik een reflectieopdracht naar een digitale ervaring.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="score-sectie" id="criteria">
   <div class="score-inner">
     <div class="section-eyebrow fade-up">Beoordelingskader</div>
@@ -443,13 +468,13 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
     <p class="section-lead fade-up">De journey vraagt om reflectie op alle competenties vanuit verschillende perspectieven. Daarom gebruik ik de competenties niet als losse checklist, maar als ontwerpprincipes voor mijn professionele ontwikkeling.</p>
     <div class="score-grid fade-up">
       <div class="score-card"><div class="score-top"><span class="score-num">1.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Critical thinking & problem solving</h3><p class="score-text">Van snel oplossen naar analyseren, alternatieven afwegen en aannames zichtbaar maken.</p></div>
-      <div class="score-card"><div class="score-top"><span class="score-num">1.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Creative thinking</h3><p class="score-text">Mijn grafische hobby werd een professionele vaardigheid: complexe informatie toegankelijk maken.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">1.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Creative thinking</h3><p class="score-text">Mijn creatieve basis en vormgevingsgevoel werden professionele vaardigheden: complexe informatie toegankelijk maken.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">1.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Collaboration</h3><p class="score-text">Samenwerken met verschillende disciplines, belangen en niveaus, zonder het doel uit het oog te verliezen.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">1.4</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Communication</h3><p class="score-text">Van terughoudend communiceren naar zichtbaar, doelgericht en passend bij de ontvanger.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">1.5</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Implement innovations</h3><p class="score-text">Nieuwe ideeën vertalen naar werkbare toepassingen, zoals ATS, e-learning en digitale HR-communicatie.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">2.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Information literacy</h3><p class="score-text">Informatie zoeken, selecteren, beoordelen en vertalen naar beleid, advies of besluitvorming.</p></div>
-      <div class="score-card"><div class="score-top"><span class="score-num">2.2</span><span class="score-weight">10%</span></div><h3 class="score-title">Media literacy</h3><p class="score-text">Bewust omgaan met digitale identiteit, employer branding en visuele beïnvloeding.</p></div>
-      <div class="score-card"><div class="score-top"><span class="score-num">2.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">ICT skills</h3><p class="score-text">Problemen herformuleren in data, processen, visualisaties en digitale oplossingen.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">2.2</span><span class="score-weight">10%</span></div><h3 class="score-title">Media literacy</h3><p class="score-text">Bewust omgaan met digitale identiteit, visuele communicatie, employer branding en online publiceren.</p></div>
+      <div class="score-card"><div class="score-top"><span class="score-num">2.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">ICT skills</h3><p class="score-text">Problemen herformuleren in data, processen, HTML/CSS, visualisaties en digitale oplossingen.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">3.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Flexibility & adaptability</h3><p class="score-text">Blijven bewegen bij verandering: verhuizing, reorganisatie, werkdruk, gezondheid en nieuwe contexten.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">3.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Initiative & self-direction</h3><p class="score-text">Zelf richting geven aan studie, loopbaan en leerdoelen, ook wanneer de route niet vanzelf spreekt.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">3.3</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Social & cross-cultural skills</h3><p class="score-text">Schakelen tussen mensen, achtergronden, belangen, professionele culturen en machtsposities.</p></div>
@@ -462,7 +487,7 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
   <div class="container">
     <div class="tl-header">De bouwtekening — chronologisch</div>
     <div class="tl-items">
-      <div class="tl-item"><div class="tl-jaar">Tot 2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Zeeuws-Vlaanderen — mijn vertrekpunt</div><div class="tl-tekst">Geboren en opgegroeid in een Surinaams-Nederlands gezin. Hier ontstond mijn vermogen om tussen perspectieven te bewegen.</div><span class="tl-badge">Persoonlijke basis</span></div></div>
+      <div class="tl-item"><div class="tl-jaar">Tot 2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Zeeuws-Vlaanderen — mijn vertrekpunt</div><div class="tl-tekst">Geboren en opgegroeid in Zeeuws-Vlaanderen. Hier ontstond mijn vermogen om tussen perspectieven, communicatiestijlen en omgevingen te bewegen.</div><span class="tl-badge">Persoonlijke basis</span></div></div>
       <div class="tl-item accent"><div class="tl-jaar">2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Verhuizing naar Limburg — voor de liefde</div><div class="tl-tekst">Een nieuw netwerk, een nieuwe regio. Ik leerde dat aanpassingsvermogen ook een vorm van leiderschap is.</div><span class="tl-badge">Kantelpunt</span></div></div>
       <div class="tl-item"><div class="tl-jaar">2018–2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR-stagiaire — Manpower Terneuzen</div><div class="tl-tekst">Mijn eerste echte HR-context. Ik leerde wat operationeel HR betekent.</div><span class="tl-badge">Stage</span></div></div>
       <div class="tl-item"><div class="tl-jaar">2019–2020</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR-medewerker — Mise en Place</div><div class="tl-tekst">Contractbeheer, verloning en aanspreekpunt. Ik merkte dat ik niet alleen wilde uitvoeren.</div><span class="tl-badge">Uitvoerend HR</span></div></div>
@@ -503,13 +528,20 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
     <p class="fase-body-p fade-up">Tijdens Business Studies veranderde mijn manier van kijken. Waar ik eerder dacht in taken en oplossingen, leerde ik denken in systemen, belangen, processen en strategie.</p>
     <p class="fase-body-p fade-up">Bij <strong>LIOF</strong> werkte ik aan employer branding, strategische personeelsplanning en HR-data. Bij <strong>MSC Laurentius</strong> kreeg mijn ontwikkeling een nieuwe laag — mijn scriptie over HR als strategische businesspartner is geen schoolopdracht maar een vraagstuk uit mijn dagelijkse werkpraktijk.</p>
     <div class="comp-grid fade-up">
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Bij LIOF werkte ik aan employer branding en digitale recruitmentprocessen. Innovatie betekent voor mij: zorgen dat het werkt in de context.</p><span class="comp-tag">Van idee naar toepassing</span></div>
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Mijn scriptie vroeg om bronnen vinden, selecteren en wegen. Ik leerde niet alleen bronnen verzamelen, maar ook beoordelen welke theorie past bij welke context.</p><span class="comp-tag">Scriptie / literatuuronderzoek</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.3 Collaboration</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik leerde samenwerken met verschillende disciplines en belangen: bestuur, directie, medisch managers, vakgroepen, HRM en externe gesprekspartners. Niet door overal hetzelfde verhaal te vertellen, maar door steeds te kijken wat de ander nodig heeft om mee te kunnen bewegen.</p><span class="comp-tag">Samenwerken in een complex veld</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.4 Communication</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn communicatie ontwikkelde zich van vooral informeren naar doelgericht beïnvloeden. Denk aan vacatureteksten, bestuurlijke mails, LinkedIn-benaderingen, IFMS-communicatie en het vertalen van HR-informatie naar verschillende doelgroepen.</p><span class="comp-tag">Doelgroepgericht communiceren</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Bij LIOF werkte ik aan employer branding en digitale recruitmentprocessen. Bij MSC Laurentius vertaal ik ideeën naar praktische HR-toepassingen, bijvoorbeeld in communicatie, e-learningoverzichten en procesverbetering.</p><span class="comp-tag">Van idee naar toepassing</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Mijn scriptie vroeg om bronnen vinden, selecteren en wegen. Ik leerde niet alleen bronnen verzamelen, maar ook beoordelen welke theorie past bij welke context en hoe informatie bruikbaar wordt voor besluitvorming.</p><span class="comp-tag">Scriptie / literatuuronderzoek</span></div>
     </div>
     <div class="fase-theorie fade-up">
       <div class="ft-label">Theoretisch kader</div>
       <p>Mintzberg helpt mij de professionele organisatie van MSC Laurentius te begrijpen. Ulrich geeft taal aan de verschuiving van HR-uitvoerder naar businesspartner. Boxall & Purcell laten zien dat HR-waarde ontstaat wanneer beleid ook goed wordt geïmplementeerd en ervaren.</p>
       <cite>Mintzberg · Ulrich · Boxall & Purcell · Pol · Mooijman — toegepast in mijn scriptieonderzoek.</cite>
+    </div>
+    <div class="bewijs-grid fade-up">
+      <div class="bewijs-card"><span class="bewijs-label">Bewijsstuk</span><h4>Scriptie binnen MSC Laurentius</h4><p>Mijn afstudeeronderzoek is direct verbonden aan mijn werkpraktijk: hoe HR binnen een medisch specialistische coöperatie strategischer gepositioneerd kan worden.</p></div>
+      <div class="bewijs-card"><span class="bewijs-label">Bewijsstuk</span><h4>Bestuurlijke communicatie</h4><p>Ik oefen met schrijven voor verschillende niveaus: van praktische HR-informatie tot voorbereiding van besluitvorming richting bestuur of algemene vergadering.</p></div>
+      <div class="bewijs-card"><span class="bewijs-label">Bewijsstuk</span><h4>Benchmark en interviews</h4><p>Door externe HR-professionals en bestuurders te interviewen, verbreed ik mijn blik buiten mijn eigen organisatie en toets ik mijn aannames.</p></div>
     </div>
   </div>
 </section>
@@ -522,7 +554,13 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
     </div>
     <div class="comp-grid fade-up">
       <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.1 Flexibility & adaptability</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Verhuizing, reorganisatie, gezondheidsuitdagingen — ik heb geleerd dat aanpassingsvermogen niet betekent dat je alles ondergaat. Het betekent bewust kiezen binnen veranderende omstandigheden.</p><span class="comp-tag">Aanpassen zonder jezelf kwijt te raken</span></div>
-      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn leiderschap ontwikkelde zich zonder formele titel. Als HR-adviseur geef ik richting door vragen te stellen, structuur aan te brengen en besluiten voor te bereiden.</p><span class="comp-tag">Leiderschap zonder titel</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.2 Initiative & self-direction</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik heb geleerd mijn eigen ontwikkeling actief te sturen: hulp vragen wanneer nodig, prioriteiten stellen, feedback omzetten naar leerdoelen en zelf de verbinding maken tussen studie, werk en loopbaan.</p><span class="comp-tag">Zelf richting geven</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.3 Social & cross-cultural skills</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">In mijn werk beweeg ik tussen verschillende professionele culturen: medisch specialisten, bestuur, ondersteunende diensten, externe partijen en onderwijs. Dat vraagt om sensitiviteit, taalgevoel en het vermogen om belangen te herkennen.</p><span class="comp-tag">Schakelen tussen werelden</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn leiderschap ontwikkelde zich zonder formele titel. Als HR-adviseur geef ik richting door vragen te stellen, structuur aan te brengen, consensus te helpen bouwen en besluiten voor te bereiden.</p><span class="comp-tag">Leiderschap zonder titel</span></div>
+    </div>
+    <div class="fase-theorie fade-up">
+      <div class="ft-label">Digitale en media-vaardigheden</div>
+      <p>Mijn ontwikkeling zit ook in het slimmer gebruiken van digitale middelen. Ik werk met systemen, Excel-overzichten, data, websites en visuele formats om informatie te ordenen en begrijpelijk te maken. Daarmee ontwikkel ik niet alleen technische vaardigheden, maar ook het vermogen om informatie bewust te publiceren en te positioneren.</p>
     </div>
     <div class="fase-quote fade-up">"Ik heb geleerd dat professioneel groeien niet betekent dat je iemand anders wordt, maar dat je bewuster inzet wie je al bent."</div>
   </div>
@@ -535,6 +573,12 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
       <div class="fase-kop-rechts"><p>Na de opleiding wil ik mijn ontwikkeling niet afronden, maar verdiepen. De basis is gelegd; nu gaat het om verstevigen en strategisch toepassen.</p></div>
     </div>
     <p class="fase-body-p fade-up">Ik rond de opleiding af terwijl ik werk in de meest complexe HR-context die ik tot nu toe heb gekend. Dit vraagt om bestuurlijke sensitiviteit, strategisch inzicht en het vermogen om professionals mee te nemen zonder hiërarchische sturing.</p>
+    <p class="fase-body-p fade-up">Dat ging niet vanzelf. Mijn grootste ontwikkeling zit misschien wel in zichtbaarheid: durven uitspreken wat ik zie, mijn advies steviger neerzetten en accepteren dat professioneel leren soms schuurt. Feedback die ik eerder kreeg — laat meer van jezelf horen — is daardoor een rode draad geworden in mijn opleiding en werk.</p>
+    <div class="reflectie-grid fade-up">
+      <div class="reflectie-card"><h4>Waar ik tegenaan liep</h4><p>Perfectionisme, twijfel of mijn advies stevig genoeg was en de neiging om eerst alles volledig te willen overzien voordat ik positie innam.</p></div>
+      <div class="reflectie-card"><h4>Wat ik heb geleerd</h4><p>Een professioneel advies hoeft niet perfect te zijn om waardevol te zijn. Juist door tijdig te delen, ontstaat gesprek, bijsturing en draagvlak.</p></div>
+      <div class="reflectie-card"><h4>Wat ik blijf oefenen</h4><p>Mijn adviesrol zichtbaar innemen in grotere groepen en blijven balanceren tussen ambitie, belastbaarheid en realistische prioriteiten.</p></div>
+    </div>
     <div class="toekomst-grid fade-up">
       <div class="toekomst-kaart tk-meeneem">
         <div class="tk-kop">Materiaal dat ik meeneem</div>
