@@ -7,19 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blauw-diep:   #0D1B2A;
-  --blauw-mid:    #1A3550;
-  --blauw-lijn:   #1E4976;
-  --blauw-helder: #2D6FA8;
-  --blauw-accent: #4A9FD4;
-  --wit-lijn:     rgba(255,255,255,0.06);
-  --geel:         #FFCB3E;
-  --koraal:       #FB836F;
-  --roze:         #C1549C;
-  --paars:        #7E549F;
-  --groen:        #6FCF97;
-  --wit:          #EFF4F8;
-  --grijs:        #7A8A9A;
+  --blauw:       #1A3A5C;
+  --blauw-mid:   #2D6FA8;
+  --blauw-licht: #E8F2FB;
+  --blauw-pale:  #F0F6FC;
+  --accent:      #2D6FA8;
+  --geel:        #E8A020;
+  --koraal:      #D45A3A;
+  --roze:        #B0448A;
+  --paars:       #6B42A0;
+  --groen:       #2E8B57;
+  --tekst:       #1A2A3A;
+  --tekst-mid:   #4A5A6A;
+  --tekst-licht: #7A8A9A;
+  --lijn:        rgba(26,58,92,0.12);
+  --bg:          #FAFBFC;
+  --bg-sectie:   #FFFFFF;
+  --bg-donker:   #1A3A5C;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -27,150 +31,106 @@ html { scroll-behavior:smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--blauw-diep);
-  color: var(--wit);
+  background: var(--bg);
+  color: var(--tekst);
   overflow-x: hidden;
 }
 
-/* ── GRID ACHTERGROND ── */
-.grid-bg {
-  position: fixed; inset:0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(var(--wit-lijn) 1px, transparent 1px),
-    linear-gradient(90deg, var(--wit-lijn) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 1;
-}
-.grid-bg::after {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse at 50% 0%, transparent 40%, var(--blauw-diep) 100%);
-}
-
-/* ── PROGRESS ── */
 #progress {
   position:fixed; top:0; left:0;
-  height:2px; background:var(--geel);
+  height:3px; background:var(--accent);
   z-index:999; width:0%;
   transition: width 0.05s linear;
 }
 
-/* ── NAV ── */
 nav {
   position:fixed; top:0; left:0; right:0;
   z-index:500;
   display:flex; align-items:center; justify-content:space-between;
-  padding: 1.1rem 3rem;
-}
-nav::before {
-  content:'';
-  position:absolute; inset:0;
-  background: rgba(13,27,42,0.82);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  z-index:-1;
+  padding: 1rem 3rem;
+  background: rgba(250,251,252,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--lijn);
 }
 .nav-logo {
   font-family:'Syne',sans-serif;
-  font-size:0.8rem; font-weight:700;
-  letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--wit);
+  font-size:0.78rem; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--blauw);
   display:flex; align-items:center; gap:0.6rem;
 }
 .nav-logo-mark {
   width:22px; height:22px;
-  border:1.5px solid var(--blauw-accent);
+  border:1.5px solid var(--accent);
   border-radius:3px;
   display:grid; place-items:center;
 }
-.nav-logo-mark svg { width:10px; height:10px; fill:var(--blauw-accent); }
-.nav-links { display:flex; gap:2.1rem; list-style:none; }
+.nav-logo-mark svg { width:10px; height:10px; fill:var(--accent); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links a {
   font-family:'DM Mono',monospace;
-  font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase;
-  color:rgba(255,255,255,0.3); text-decoration:none;
+  font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--tekst-licht); text-decoration:none;
   transition:color 0.2s;
-  display:flex; align-items:center; gap:0.4rem;
 }
-.nav-links a .nav-num { color:rgba(255,255,255,0.15); }
-.nav-links a:hover { color:var(--wit); }
+.nav-links a:hover { color:var(--blauw); }
 
-/* ── HERO ── */
 .hero {
   min-height:100vh;
   display:flex; flex-direction:column; justify-content:flex-end;
   padding:0 3rem 5rem;
   position:relative; overflow:hidden;
+  background: linear-gradient(135deg, #EFF5FB 0%, #F7FAFD 50%, #EDF3F9 100%);
+}
+.hero-accent-line {
+  position:absolute; top:0; left:0; right:0; height:4px;
+  background: linear-gradient(to right, var(--geel), var(--accent));
+}
+.hero-grid-bg {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(26,58,92,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,58,92,0.05) 1px, transparent 1px);
+  background-size:60px 60px;
 }
 .hero-lines {
-  position:absolute; inset:0;
-  pointer-events:none; z-index:1;
-  overflow:hidden;
+  position:absolute; inset:0; pointer-events:none; z-index:1; overflow:hidden;
 }
-.hero-lines svg {
-  position:absolute; inset:0;
-  width:100%; height:100%;
-  opacity:0.18;
-}
-.hero-glow {
-  position:absolute;
-  width:800px; height:800px;
-  border-radius:50%;
-  background: radial-gradient(circle, rgba(74,159,212,0.12) 0%, transparent 65%);
-  top:-200px; right:-200px;
-  pointer-events:none; z-index:1;
-}
-.hero-glow2 {
-  position:absolute;
-  width:500px; height:500px;
-  border-radius:50%;
-  background: radial-gradient(circle, rgba(255,203,62,0.07) 0%, transparent 65%);
-  bottom:-100px; left:10%;
-  pointer-events:none; z-index:1;
-}
+.hero-lines svg { position:absolute; inset:0; width:100%; height:100%; opacity:0.12; }
 .hero-content { position:relative; z-index:2; max-width:1120px; }
 .hero-tag {
   font-family:'DM Mono',monospace;
-  font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
-  color:var(--blauw-accent);
-  margin-bottom:1.5rem;
+  font-size:0.63rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:1.5rem;
   display:flex; align-items:center; gap:0.75rem;
 }
-.hero-tag::before { content:''; width:28px; height:1px; background:var(--blauw-accent); }
+.hero-tag::before { content:''; width:28px; height:1.5px; background:var(--accent); }
 .hero-h1 {
   font-family:'Syne',sans-serif;
-  font-size:clamp(3.5rem,8.5vw,8.5rem);
+  font-size:clamp(3.5rem,8.5vw,8rem);
   font-weight:800; line-height:0.95;
-  letter-spacing:-0.03em; color:var(--wit);
+  letter-spacing:-0.03em; color:var(--blauw);
   margin-bottom:1rem;
 }
-.hero-h1 .naam {
-  color:transparent;
-  -webkit-text-stroke:1.5px rgba(255,255,255,0.5);
-}
-.hero-h1 .accent { color:var(--geel); }
+.hero-h1 .naam { color:var(--tekst-mid); }
+.hero-h1 .accent-txt { color:var(--accent); }
 .hero-sub {
-  font-size:1rem; color:rgba(255,255,255,0.46);
-  font-weight:300; line-height:1.65;
-  max-width:600px; margin-bottom:3rem;
+  font-size:1rem; color:var(--tekst-mid);
+  font-weight:300; line-height:1.7;
+  max-width:580px; margin-bottom:3rem;
 }
 .hero-meta-row { display:flex; gap:3rem; flex-wrap:wrap; }
 .hero-meta-label {
   font-family:'DM Mono',monospace;
-  font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase;
-  color:rgba(255,255,255,0.2); margin-bottom:0.2rem;
+  font-size:0.56rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--tekst-licht); margin-bottom:0.2rem;
 }
-.hero-meta-waarde { font-size:0.82rem; color:rgba(255,255,255,0.58); }
-.hero-coord {
-  position:absolute; top:6rem; right:3rem;
-  z-index:2; text-align:right;
-}
+.hero-meta-waarde { font-size:0.82rem; color:var(--tekst-mid); }
+.hero-coord { position:absolute; top:6rem; right:3rem; z-index:2; text-align:right; }
 .hero-coord p {
   font-family:'DM Mono',monospace;
-  font-size:0.6rem; letter-spacing:0.1em;
-  color:rgba(255,255,255,0.15); line-height:1.8;
+  font-size:0.58rem; letter-spacing:0.1em;
+  color:var(--tekst-licht); line-height:1.8;
 }
 .scroll-indicator {
   position:absolute; bottom:2.5rem; right:3rem;
@@ -178,33 +138,24 @@ nav::before {
 }
 .scroll-indicator span {
   font-family:'DM Mono',monospace;
-  font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase;
-  color:rgba(255,255,255,0.2);
+  font-size:0.56rem; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--tekst-licht);
 }
 .scroll-line {
   width:1px; height:50px;
-  background:linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+  background:linear-gradient(to bottom, var(--tekst-licht), transparent);
   animation:pulse 2s ease-in-out infinite;
 }
 @keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
 
-/* ── SECTIE BASIS ── */
 section { position:relative; }
 .container { max-width:1100px; margin:0 auto; padding:0 3rem; }
-.container-smal { max-width:820px; margin:0 auto; padding:0 3rem; }
 
-/* ── INTRO SECTIE ── */
 .intro-sectie {
-  background:var(--wit);
-  color:var(--blauw-diep);
+  background: var(--bg-sectie);
+  color:var(--tekst);
   padding:8rem 3rem;
-  position:relative;
-}
-.intro-sectie::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0;
-  height:4px;
-  background:linear-gradient(to right, var(--geel), var(--blauw-accent));
+  border-bottom: 1px solid var(--lijn);
 }
 .intro-inner {
   max-width:1100px; margin:0 auto;
@@ -214,399 +165,197 @@ section { position:relative; }
 .intro-sidebar { position:sticky; top:120px; }
 .sidebar-label {
   font-family:'DM Mono',monospace;
-  font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--blauw-helder); margin-bottom:1rem;
+  font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:1rem;
   display:flex; align-items:center; gap:0.5rem;
 }
-.sidebar-label::before { content:''; width:16px; height:1.5px; background:var(--blauw-helder); }
+.sidebar-label::before { content:''; width:16px; height:1.5px; background:var(--accent); }
 .sidebar-h3 {
   font-family:'Syne',sans-serif;
-  font-size:1.6rem; font-weight:800;
-  line-height:1.15; color:var(--blauw-diep);
+  font-size:1.5rem; font-weight:800;
+  line-height:1.15; color:var(--blauw);
   margin-bottom:0.75rem;
 }
-.sidebar-p {
-  font-size:0.82rem; color:#5A6A7A;
-  line-height:1.7; font-weight:400;
-}
+.sidebar-p { font-size:0.82rem; color:var(--tekst-mid); line-height:1.7; }
 .sidebar-nr {
   font-family:'Syne',sans-serif;
-  font-size:7rem; font-weight:800;
-  color:rgba(13,27,42,0.05); line-height:1;
+  font-size:6rem; font-weight:800;
+  color:rgba(26,58,92,0.06); line-height:1;
   margin-top:1rem; letter-spacing:-0.04em;
 }
-.body-p {
-  font-size:1.05rem; line-height:1.85;
-  font-weight:300; margin-bottom:1.5rem;
-}
-.body-p strong { font-weight:600; }
+.body-p { font-size:1rem; line-height:1.85; font-weight:300; margin-bottom:1.5rem; color:var(--tekst); }
+.body-p strong { font-weight:600; color:var(--blauw); }
 .inline-quote {
   font-family:'Syne',sans-serif;
-  font-size:1.4rem; font-weight:700;
-  line-height:1.35; color:var(--blauw-diep);
-  border-left:3px solid var(--blauw-accent);
+  font-size:1.3rem; font-weight:700;
+  line-height:1.35; color:var(--blauw);
+  border-left:3px solid var(--accent);
   padding:1rem 0 1rem 1.75rem;
   margin:2.5rem 0;
+  background:var(--blauw-pale); border-radius:0 8px 8px 0;
 }
 .theorie-block {
-  background:var(--blauw-diep); color:var(--wit);
-  border-radius:12px; padding:2rem 2.25rem;
+  background:var(--blauw-licht); color:var(--blauw);
+  border-radius:10px; padding:1.75rem 2rem;
   margin:2.5rem 0;
-  border:1px solid rgba(74,159,212,0.15);
+  border:1px solid rgba(45,111,168,0.2);
 }
 .theorie-label-s {
   font-family:'DM Mono',monospace;
-  font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--blauw-accent); margin-bottom:0.75rem;
+  font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:0.75rem;
 }
-.theorie-block p { font-size:0.9rem; line-height:1.75; color:rgba(255,255,255,0.66); font-weight:300; }
-.theorie-block cite { display:block; font-size:0.7rem; color:rgba(255,255,255,0.25); margin-top:0.65rem; font-style:normal; }
+.theorie-block p { font-size:0.88rem; line-height:1.75; color:var(--tekst-mid); }
+.theorie-block cite { display:block; font-size:0.7rem; color:var(--tekst-licht); margin-top:0.65rem; font-style:normal; }
 
-/* ── OVERZICHT / SCOREKAART ── */
-.score-sectie {
-  background:#F7FAFC;
-  color:var(--blauw-diep);
-  padding:7rem 3rem;
-}
+.score-sectie { background:#F4F6F9; padding:7rem 3rem; border-bottom:1px solid var(--lijn); }
 .score-inner { max-width:1100px; margin:0 auto; }
 .section-eyebrow {
   font-family:'DM Mono',monospace;
-  font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--blauw-helder); margin-bottom:1rem;
+  font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:1rem;
 }
 .section-title {
   font-family:'Syne',sans-serif;
-  font-size:clamp(2.1rem,4vw,3.6rem);
+  font-size:clamp(2rem,4vw,3.2rem);
   font-weight:800; line-height:1.05;
-  letter-spacing:-0.03em;
+  letter-spacing:-0.03em; color:var(--blauw);
   margin-bottom:1rem;
 }
-.section-lead {
-  max-width:760px;
-  font-size:1rem; line-height:1.8;
-  color:#526272;
-  font-weight:300;
-  margin-bottom:3rem;
-}
-.score-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-}
+.section-lead { max-width:760px; font-size:0.95rem; line-height:1.8; color:var(--tekst-mid); font-weight:300; margin-bottom:3rem; }
+.score-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
 .score-card {
   background:#FFFFFF;
-  border:1px solid rgba(13,27,42,0.08);
-  border-radius:14px;
-  padding:1.35rem;
-  min-height:210px;
-  box-shadow:0 16px 45px rgba(13,27,42,0.05);
+  border:1px solid rgba(26,58,92,0.1);
+  border-radius:12px; padding:1.25rem;
+  min-height:190px;
+  box-shadow:0 2px 12px rgba(26,58,92,0.04);
+  transition:box-shadow 0.2s, transform 0.2s;
 }
-.score-top {
-  display:flex; justify-content:space-between; gap:1rem; align-items:start;
-  margin-bottom:0.8rem;
-}
-.score-num {
-  font-family:'DM Mono',monospace;
-  color:var(--blauw-helder);
-  font-size:0.68rem;
-  letter-spacing:0.1em;
-}
-.score-weight {
-  font-family:'DM Mono',monospace;
-  color:#9AA8B5;
-  font-size:0.62rem;
-}
-.score-title {
-  font-family:'Syne',sans-serif;
-  font-size:1rem;
-  font-weight:700;
-  line-height:1.2;
-  margin-bottom:0.65rem;
-}
-.score-text {
-  font-size:0.82rem;
-  line-height:1.65;
-  color:#5A6A7A;
-}
+.score-card:hover { box-shadow:0 6px 24px rgba(26,58,92,0.09); transform:translateY(-2px); }
+.score-top { display:flex; justify-content:space-between; gap:1rem; align-items:start; margin-bottom:0.7rem; }
+.score-num { font-family:'DM Mono',monospace; color:var(--accent); font-size:0.66rem; letter-spacing:0.1em; }
+.score-weight { font-family:'DM Mono',monospace; color:var(--tekst-licht); font-size:0.6rem; }
+.score-title { font-family:'Syne',sans-serif; font-size:0.92rem; font-weight:700; line-height:1.2; margin-bottom:0.6rem; color:var(--blauw); }
+.score-text { font-size:0.8rem; line-height:1.65; color:var(--tekst-mid); }
 
-/* ── TIJDLIJN ── */
-.tijdlijn-sectie {
-  background:var(--blauw-mid);
-  padding:7rem 3rem;
-  position:relative; overflow:hidden;
-}
+.tijdlijn-sectie { background:var(--blauw); padding:7rem 3rem; position:relative; overflow:hidden; }
 .tijdlijn-sectie::before {
-  content:'TIJDLIJN';
-  position:absolute; top:50%; left:50%;
+  content:'TIJDLIJN'; position:absolute; top:50%; left:50%;
   transform:translate(-50%,-50%);
-  font-family:'Syne',sans-serif;
-  font-size:17vw; font-weight:800;
-  color:rgba(255,255,255,0.025);
-  white-space:nowrap; pointer-events:none;
-  letter-spacing:-0.04em;
+  font-family:'Syne',sans-serif; font-size:17vw; font-weight:800;
+  color:rgba(255,255,255,0.04); white-space:nowrap; pointer-events:none; letter-spacing:-0.04em;
 }
 .tl-header {
-  font-family:'DM Mono',monospace;
-  font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:rgba(255,255,255,0.25); margin-bottom:4rem;
+  font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:rgba(255,255,255,0.4); margin-bottom:4rem;
   display:flex; align-items:center; gap:0.75rem;
 }
-.tl-header::before { content:''; width:24px; height:1px; background:rgba(255,255,255,0.25); }
+.tl-header::before { content:''; width:24px; height:1px; background:rgba(255,255,255,0.4); }
 .tl-items { display:flex; flex-direction:column; }
-.tl-item {
-  display:grid; grid-template-columns:120px 40px 1fr;
-  gap:0; padding-bottom:3rem;
-  opacity:0; transform:translateX(-16px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
-}
+.tl-item { display:grid; grid-template-columns:120px 40px 1fr; gap:0; padding-bottom:3rem; opacity:0; transform:translateX(-16px); transition:opacity 0.6s ease, transform 0.6s ease; }
 .tl-item.zichtbaar { opacity:1; transform:translateX(0); }
-.tl-jaar {
-  font-family:'DM Mono',monospace; font-size:0.7rem;
-  color:rgba(255,255,255,0.25); letter-spacing:0.06em;
-  padding-top:0.15rem; text-align:right; padding-right:1.5rem;
-}
+.tl-jaar { font-family:'DM Mono',monospace; font-size:0.68rem; color:rgba(255,255,255,0.35); letter-spacing:0.06em; padding-top:0.15rem; text-align:right; padding-right:1.5rem; }
 .tl-midden { display:flex; flex-direction:column; align-items:center; padding-top:0.2rem; }
-.tl-dot {
-  width:9px; height:9px; border-radius:50%;
-  border:1.5px solid rgba(255,255,255,0.2);
-  background:var(--blauw-mid); flex-shrink:0;
-  transition:all 0.3s;
-}
-.tl-item:hover .tl-dot { border-color:var(--blauw-accent); background:var(--blauw-accent); }
+.tl-dot { width:9px; height:9px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.3); background:var(--blauw); flex-shrink:0; transition:all 0.3s; }
+.tl-item:hover .tl-dot { border-color:rgba(255,255,255,0.8); background:rgba(255,255,255,0.8); }
 .tl-item.accent .tl-dot { border-color:var(--geel); background:var(--geel); }
-.tl-verbind { flex:1; width:1px; background:rgba(255,255,255,0.07); margin-top:4px; }
+.tl-verbind { flex:1; width:1px; background:rgba(255,255,255,0.1); margin-top:4px; }
 .tl-item:last-child .tl-verbind { display:none; }
 .tl-content { padding-left:1.25rem; }
-.tl-titel {
-  font-family:'Syne',sans-serif; font-size:1rem; font-weight:600;
-  color:var(--wit); margin-bottom:0.3rem;
-}
+.tl-titel { font-family:'Syne',sans-serif; font-size:0.98rem; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:0.3rem; }
 .tl-item.accent .tl-titel { color:var(--geel); }
-.tl-tekst { font-size:0.85rem; color:rgba(255,255,255,0.44); line-height:1.65; font-weight:300; max-width:760px; }
-.tl-badge {
-  display:inline-block; margin-top:0.6rem;
-  font-family:'DM Mono',monospace; font-size:0.58rem;
-  letter-spacing:0.1em; text-transform:uppercase;
-  padding:0.22rem 0.6rem; border-radius:3px;
-  border:1px solid rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.3);
-}
-.tl-item.accent .tl-badge { border-color:rgba(255,203,62,0.3); color:rgba(255,203,62,0.55); }
+.tl-tekst { font-size:0.83rem; color:rgba(255,255,255,0.5); line-height:1.65; font-weight:300; max-width:760px; }
+.tl-badge { display:inline-block; margin-top:0.6rem; font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.22rem 0.6rem; border-radius:3px; border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.4); }
+.tl-item.accent .tl-badge { border-color:rgba(232,160,32,0.4); color:rgba(232,160,32,0.7); }
 
-/* ── FASE SECTIES ── */
-.fase {
-  padding:8rem 3rem;
-  position:relative; overflow:hidden;
-}
-.fase::before {
-  content:'';
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-}
-.fase-01 { background:var(--blauw-diep); }
-.fase-02 { background:#0E2233; }
-.fase-02b { background:var(--blauw-mid); }
-.fase-03 { background:#0A1A28; }
+.fase { padding:8rem 3rem; position:relative; border-bottom:1px solid var(--lijn); }
+.fase-01 { background:#FFFFFF; }
+.fase-02 { background:#F7FAFD; }
+.fase-02b { background:#FFFFFF; }
+.fase-03 { background:#F4F6F9; }
 .fase-inner { max-width:1100px; margin:0 auto; position:relative; z-index:1; }
-.fase-kop {
-  display:flex; justify-content:space-between; align-items:flex-start;
-  margin-bottom:5rem; gap:2rem; flex-wrap:wrap;
-}
-.fase-kop-id {
-  font-family:'DM Mono',monospace;
-  font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:rgba(255,255,255,0.25); margin-bottom:0.85rem;
-  display:flex; align-items:center; gap:0.6rem;
-}
-.fase-kop-id::before { content:''; width:20px; height:1px; background:rgba(255,255,255,0.25); }
+.fase-kop { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:5rem; gap:2rem; flex-wrap:wrap; }
+.fase-kop-id { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--tekst-licht); margin-bottom:0.85rem; display:flex; align-items:center; gap:0.6rem; }
+.fase-kop-id::before { content:''; width:20px; height:1px; background:var(--lijn); }
 .kleur-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:0.4rem; }
-.fase-h2 {
-  font-family:'Syne',sans-serif;
-  font-size:clamp(2.2rem,4.5vw,4rem);
-  font-weight:800; line-height:1.0;
-  letter-spacing:-0.03em; color:var(--wit);
-  max-width:640px;
-}
-.fase-kop-rechts { max-width:380px; }
-.fase-kop-rechts p {
-  font-size:0.92rem; color:rgba(255,255,255,0.42);
-  line-height:1.75; font-weight:300;
-}
-.fase-body-p {
-  font-size:1rem; line-height:1.85;
-  color:rgba(255,255,255,0.66); font-weight:300;
-  margin-bottom:1.4rem;
-  max-width:880px;
-}
-.fase-body-p strong { font-weight:600; color:var(--wit); }
-.comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:2.5rem 0; }
-.comp-card {
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:12px; padding:1.75rem;
-  transition:background 0.25s, transform 0.25s;
-  position:relative; overflow:hidden;
-}
-.comp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+.fase-h2 { font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:800; line-height:1.0; letter-spacing:-0.03em; color:var(--blauw); max-width:620px; }
+.fase-kop-rechts { max-width:360px; }
+.fase-kop-rechts p { font-size:0.9rem; color:var(--tekst-mid); line-height:1.75; font-weight:300; }
+.fase-body-p { font-size:1rem; line-height:1.85; color:var(--tekst); font-weight:300; margin-bottom:1.4rem; max-width:880px; }
+.fase-body-p strong { font-weight:600; color:var(--blauw); }
+.comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.5rem 0; }
+.comp-card { background:#FFFFFF; border:1px solid rgba(26,58,92,0.1); border-radius:12px; padding:1.5rem; transition:box-shadow 0.2s, transform 0.2s; position:relative; overflow:hidden; }
+.comp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
 .c-geel::before { background:var(--geel); }
 .c-koraal::before { background:var(--koraal); }
 .c-roze::before { background:var(--roze); }
 .c-paars::before { background:var(--paars); }
-.c-blauw::before { background:var(--blauw-accent); }
+.c-blauw::before { background:var(--accent); }
 .c-groen::before { background:var(--groen); }
-.comp-card:hover { background:rgba(255,255,255,0.07); transform:translateY(-3px); }
-.comp-kop { display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:0.85rem; }
-.comp-naam { font-family:'Syne',sans-serif; font-size:0.9rem; font-weight:700; color:var(--wit); line-height:1.25; }
-.comp-pct { font-family:'DM Mono',monospace; font-size:0.62rem; color:rgba(255,255,255,0.25); white-space:nowrap; padding-top:0.12rem; }
-.comp-tekst { font-size:0.85rem; line-height:1.72; color:rgba(255,255,255,0.56); font-weight:300; margin-bottom:1rem; }
-.comp-tag {
-  font-family:'DM Mono',monospace;
-  font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase;
-  padding:0.25rem 0.65rem; border-radius:3px;
-  border:1px solid rgba(255,255,255,0.1);
-  color:rgba(255,255,255,0.3); display:inline-block;
-}
-.fase-quote {
-  font-family:'Syne',sans-serif;
-  font-size:clamp(1.3rem,2.2vw,1.85rem);
-  font-weight:700; line-height:1.35; color:var(--wit);
-  border-top:1px solid rgba(255,255,255,0.1);
-  padding-top:2rem; margin:4rem 0 0;
-  max-width:830px;
-}
-.fase-theorie {
-  background:rgba(74,159,212,0.07);
-  border:1px solid rgba(74,159,212,0.15);
-  border-left:3px solid var(--blauw-accent);
-  border-radius:0 10px 10px 0;
-  padding:1.75rem 2rem; margin:3rem 0;
-}
-.ft-label {
-  font-family:'DM Mono',monospace;
-  font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase;
-  color:var(--blauw-accent); margin-bottom:0.6rem;
-}
-.fase-theorie p { font-size:0.88rem; line-height:1.75; color:rgba(255,255,255,0.62); font-weight:300; }
-.fase-theorie cite { display:block; font-size:0.7rem; color:rgba(255,255,255,0.24); margin-top:0.6rem; font-style:normal; }
+.comp-card:hover { box-shadow:0 6px 24px rgba(26,58,92,0.08); transform:translateY(-2px); }
+.comp-kop { display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:0.75rem; }
+.comp-naam { font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700; color:var(--blauw); line-height:1.25; }
+.comp-pct { font-family:'DM Mono',monospace; font-size:0.6rem; color:var(--tekst-licht); white-space:nowrap; padding-top:0.1rem; }
+.comp-tekst { font-size:0.82rem; line-height:1.7; color:var(--tekst-mid); font-weight:300; margin-bottom:0.85rem; }
+.comp-tag { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.22rem 0.6rem; border-radius:3px; border:1px solid rgba(26,58,92,0.15); color:var(--tekst-licht); display:inline-block; }
+.fase-quote { font-family:'Syne',sans-serif; font-size:clamp(1.2rem,2vw,1.7rem); font-weight:700; line-height:1.35; color:var(--blauw); border-top:1px solid var(--lijn); padding-top:2rem; margin:4rem 0 0; max-width:830px; }
+.fase-theorie { background:var(--blauw-licht); border:1px solid rgba(45,111,168,0.2); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1.5rem 1.75rem; margin:3rem 0; }
+.ft-label { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem; }
+.fase-theorie p { font-size:0.86rem; line-height:1.75; color:var(--tekst-mid); }
+.fase-theorie cite { display:block; font-size:0.68rem; color:var(--tekst-licht); margin-top:0.6rem; font-style:normal; }
 
-/* ── REFLECTIEBLOKKEN ── */
 .reflectie-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin:2.5rem 0 0; }
-.reflectie-card {
-  background:rgba(255,255,255,0.035);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:12px;
-  padding:1.5rem;
-}
-.reflectie-card h4 {
-  font-family:'Syne',sans-serif;
-  font-size:0.98rem;
-  margin-bottom:0.7rem;
-}
-.reflectie-card p {
-  font-size:0.82rem;
-  line-height:1.7;
-  color:rgba(255,255,255,0.55);
-  font-weight:300;
-}
+.reflectie-card { background:#F4F6F9; border:1px solid var(--lijn); border-radius:10px; padding:1.4rem; }
+.reflectie-card h4 { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; color:var(--blauw); margin-bottom:0.6rem; }
+.reflectie-card p { font-size:0.8rem; line-height:1.7; color:var(--tekst-mid); }
 
-/* ── TOEKOMST ── */
 .toekomst-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; }
-.toekomst-kaart { border-radius:12px; padding:2rem; border:1px solid rgba(255,255,255,0.08); }
-.tk-meeneem { background:rgba(74,159,212,0.07); border-color:rgba(74,159,212,0.15); }
-.tk-ontwikkel { background:rgba(255,255,255,0.03); }
-.tk-kop { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.28); margin-bottom:1.25rem; }
-.tk-item { display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:0.8rem; font-size:0.88rem; color:rgba(255,255,255,0.62); font-weight:300; line-height:1.55; }
-.tk-pijl { color:var(--blauw-accent); font-weight:500; flex-shrink:0; margin-top:0.05rem; }
-.tk-ontwikkel .tk-pijl { color:rgba(255,255,255,0.2); }
+.toekomst-kaart { border-radius:12px; padding:1.75rem; border:1px solid var(--lijn); }
+.tk-meeneem { background:var(--blauw-licht); border-color:rgba(45,111,168,0.2); }
+.tk-ontwikkel { background:#FFFFFF; }
+.tk-kop { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--tekst-licht); margin-bottom:1.25rem; }
+.tk-item { display:flex; gap:0.75rem; align-items:flex-start; margin-bottom:0.75rem; font-size:0.86rem; color:var(--tekst-mid); font-weight:300; line-height:1.55; }
+.tk-pijl { color:var(--accent); font-weight:600; flex-shrink:0; margin-top:0.05rem; }
+.tk-ontwikkel .tk-pijl { color:var(--tekst-licht); }
 
-/* ── AFSLUITING ── */
-.afsluiting {
-  background:var(--blauw-diep);
-  padding:10rem 3rem 6rem;
-  text-align:center; position:relative; overflow:hidden;
-}
-.afsluiting::before {
-  content:'';
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(var(--wit-lijn) 1px, transparent 1px),
-    linear-gradient(90deg, var(--wit-lijn) 1px, transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-}
-.afsluiting-glow {
-  position:absolute; width:700px; height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(74,159,212,0.1) 0%, transparent 65%);
-  top:50%; left:50%; transform:translate(-50%,-50%);
-  pointer-events:none;
-}
-.blauwdruk-icon { position:relative; z-index:1; margin:0 auto 3.5rem; width:80px; height:80px; }
-.blauwdruk-icon svg { width:80px; height:80px; opacity:0.35; }
-.afsluiting-h2 {
-  font-family:'Syne',sans-serif;
-  font-size:clamp(3rem,7vw,7rem);
-  font-weight:800; line-height:0.95;
-  letter-spacing:-0.03em; color:var(--wit);
-  margin-bottom:2rem; position:relative; z-index:1;
-}
-.afsluiting-h2 em { font-style:italic; color:var(--blauw-accent); font-weight:400; }
-.afsluiting-tekst {
-  font-size:1rem; color:rgba(255,255,255,0.42);
-  font-weight:300; line-height:1.8;
-  max-width:620px; margin:0 auto 4rem;
-  position:relative; z-index:1;
-}
-.vraag-box {
-  display:inline-block; position:relative; z-index:1;
-  border:1px solid rgba(74,159,212,0.25);
-  background:rgba(74,159,212,0.05);
-  border-radius:16px; padding:2.5rem 3.5rem;
-  max-width:660px; margin:0 auto 5rem;
-}
-.vraag-box p { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:600; color:var(--wit); line-height:1.4; }
-.vraag-box p em { color:var(--blauw-accent); font-style:italic; font-weight:400; }
-.meta-grid { display:flex; gap:4rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+.afsluiting { background:var(--blauw); padding:8rem 3rem 5rem; text-align:center; position:relative; overflow:hidden; }
+.afsluiting::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size:60px 60px; pointer-events:none; }
+.blauwdruk-icon { position:relative; z-index:1; margin:0 auto 3rem; width:70px; height:70px; }
+.blauwdruk-icon svg { width:70px; height:70px; opacity:0.4; }
+.afsluiting-h2 { font-family:'Syne',sans-serif; font-size:clamp(2.5rem,6vw,6rem); font-weight:800; line-height:0.95; letter-spacing:-0.03em; color:rgba(255,255,255,0.95); margin-bottom:2rem; position:relative; z-index:1; }
+.afsluiting-h2 em { font-style:italic; color:rgba(255,255,255,0.5); font-weight:400; }
+.afsluiting-tekst { font-size:0.95rem; color:rgba(255,255,255,0.55); font-weight:300; line-height:1.8; max-width:580px; margin:0 auto 4rem; position:relative; z-index:1; }
+.vraag-box { display:inline-block; position:relative; z-index:1; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.07); border-radius:14px; padding:2rem 3rem; max-width:620px; margin:0 auto 5rem; }
+.vraag-box p { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:600; color:rgba(255,255,255,0.9); line-height:1.4; }
+.meta-grid { display:flex; gap:3.5rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
 .meta-item { text-align:left; }
-.meta-label { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.18); margin-bottom:0.2rem; }
-.meta-waarde { font-size:0.85rem; color:rgba(255,255,255,0.5); }
-footer { background:#060E16; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; color:rgba(255,255,255,0.12); text-transform:uppercase; }
+.meta-label { font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:0.2rem; }
+.meta-waarde { font-size:0.82rem; color:rgba(255,255,255,0.6); }
+footer { background:#122840; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; }
+footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.1em; color:rgba(255,255,255,0.2); text-transform:uppercase; }
 
-/* ANIMATIES */
-.fade-up { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.zichtbaar { opacity:1; transform:translateY(0); }
-.fd1 { transition-delay:0.1s; }
-.fd2 { transition-delay:0.2s; }
-.fd3 { transition-delay:0.3s; }
+.fd1 { transition-delay:0.1s; } .fd2 { transition-delay:0.2s; } .fd3 { transition-delay:0.3s; }
 
-/* RESPONSIVE */
-@media (max-width: 980px) {
+@media (max-width:980px) {
   nav { padding:1rem 1.4rem; }
   .nav-links { display:none; }
   .hero { padding:0 1.4rem 4rem; }
   .hero-coord { display:none; }
-  .hero-meta-row { gap:1.5rem; }
   .intro-sectie, .tijdlijn-sectie, .fase, .score-sectie, .afsluiting { padding-left:1.4rem; padding-right:1.4rem; }
   .intro-inner { grid-template-columns:1fr; gap:2.5rem; }
   .intro-sidebar { position:relative; top:0; }
   .comp-grid, .toekomst-grid, .score-grid, .reflectie-grid { grid-template-columns:1fr; }
   .tl-item { grid-template-columns:70px 30px 1fr; }
-  .tl-jaar { font-size:0.62rem; padding-right:0.8rem; }
-  footer { flex-direction:column; align-items:flex-start; }
 }
 </style>
 </head>
 <body>
 
-<div class="grid-bg"></div>
 <div id="progress"></div>
 
-<!-- ── NAV ── -->
 <nav>
   <div class="nav-logo">
     <div class="nav-logo-mark">
@@ -615,45 +364,30 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
     Raisa Ramkhelawan
   </div>
   <ul class="nav-links">
-    <li><a href="#intro"><span class="nav-num">00</span> Intro</a></li>
-    <li><a href="#criteria"><span class="nav-num">☆</span> Criteria</a></li>
-    <li><a href="#tijdlijn"><span class="nav-num">—</span> Tijdlijn</a></li>
-    <li><a href="#voor"><span class="nav-num">01</span> Vóór</a></li>
-    <li><a href="#tijdens"><span class="nav-num">02</span> Tijdens</a></li>
-    <li><a href="#na"><span class="nav-num">03</span> Na</a></li>
+    <li><a href="#intro">00 Intro</a></li>
+    <li><a href="#criteria">Criteria</a></li>
+    <li><a href="#tijdlijn">Tijdlijn</a></li>
+    <li><a href="#voor">01 Vóór</a></li>
+    <li><a href="#tijdens">02 Tijdens</a></li>
+    <li><a href="#na">03 Na</a></li>
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
 <section class="hero" id="top">
+  <div class="hero-accent-line"></div>
+  <div class="hero-grid-bg"></div>
   <div class="hero-lines">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <line x1="200" y1="0" x2="200" y2="900" stroke="white" stroke-width="0.5"/>
-      <line x1="0" y1="300" x2="1440" y2="300" stroke="white" stroke-width="0.5"/>
-      <circle cx="200" cy="300" r="120" stroke="white" stroke-width="0.5" fill="none"/>
-      <circle cx="200" cy="300" r="200" stroke="white" stroke-width="0.3" fill="none"/>
-      <line x1="200" y1="180" x2="700" y2="180" stroke="white" stroke-width="0.5"/>
-      <line x1="700" y1="0" x2="700" y2="500" stroke="white" stroke-width="0.3"/>
-      <rect x="850" y="100" width="400" height="280" stroke="white" stroke-width="0.5" fill="none"/>
-      <line x1="850" y1="180" x2="1250" y2="180" stroke="white" stroke-width="0.3"/>
-      <line x1="1050" y1="100" x2="1050" y2="380" stroke="white" stroke-width="0.3"/>
-      <circle cx="1050" cy="240" r="60" stroke="white" stroke-width="0.4" fill="none"/>
-      <line x1="80" y1="180" x2="80" y2="420" stroke="white" stroke-width="0.4"/>
-      <line x1="75" y1="180" x2="85" y2="180" stroke="white" stroke-width="0.4"/>
-      <line x1="75" y1="420" x2="85" y2="420" stroke="white" stroke-width="0.4"/>
-      <line x1="200" y1="50" x2="700" y2="50" stroke="white" stroke-width="0.4"/>
-      <line x1="200" y1="45" x2="200" y2="55" stroke="white" stroke-width="0.4"/>
-      <line x1="700" y1="45" x2="700" y2="55" stroke="white" stroke-width="0.4"/>
-      <line x1="700" y1="300" x2="850" y2="100" stroke="white" stroke-width="0.3"/>
-      <line x1="200" y1="420" x2="700" y2="500" stroke="white" stroke-width="0.25"/>
-      <line x1="1050" y1="237" x2="1050" y2="243" stroke="white" stroke-width="0.6"/>
-      <line x1="1047" y1="240" x2="1053" y2="240" stroke="white" stroke-width="0.6"/>
-      <line x1="200" y1="297" x2="200" y2="303" stroke="white" stroke-width="0.6"/>
-      <line x1="197" y1="300" x2="203" y2="300" stroke="white" stroke-width="0.6"/>
+      <line x1="200" y1="0" x2="200" y2="900" stroke="#1A3A5C" stroke-width="0.5"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="#1A3A5C" stroke-width="0.5"/>
+      <circle cx="200" cy="300" r="120" stroke="#1A3A5C" stroke-width="0.5" fill="none"/>
+      <circle cx="200" cy="300" r="200" stroke="#1A3A5C" stroke-width="0.3" fill="none"/>
+      <line x1="200" y1="180" x2="700" y2="180" stroke="#1A3A5C" stroke-width="0.5"/>
+      <line x1="700" y1="0" x2="700" y2="500" stroke="#1A3A5C" stroke-width="0.3"/>
+      <rect x="850" y="100" width="400" height="280" stroke="#1A3A5C" stroke-width="0.5" fill="none"/>
+      <circle cx="1050" cy="240" r="60" stroke="#1A3A5C" stroke-width="0.4" fill="none"/>
     </svg>
   </div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
 
   <div class="hero-coord">
     <p>JOURNEY · BUSINESS STUDIES HRM</p>
@@ -666,21 +400,19 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
     <h1 class="hero-h1">
       Blauwdruk<br>
       <span class="naam">Raisa</span><br>
-      <span class="accent">Ramkhelawan</span>
+      <span class="accent-txt">Ramkhelawan</span>
     </h1>
     <p class="hero-sub">Een digitale journey over mijn ontwikkeling vóór, tijdens en na de opleiding Business Studies HRM: van operationeel aanpakken naar strategisch kijken, van terughoudend aanwezig zijn naar bewust positie innemen.</p>
     <div class="hero-meta-row">
-      <div class="hero-meta-item"><div class="hero-meta-label">Naam</div><div class="hero-meta-waarde">Raisa Ramkhelawan</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-label">Opleiding</div><div class="hero-meta-waarde">Business Studies HRM, deeltijd</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-label">Instelling</div><div class="hero-meta-waarde">Zuyd Hogeschool, Heerlen</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-label">Werkgever</div><div class="hero-meta-waarde">MSC Laurentius, Roermond</div></div>
+      <div><div class="hero-meta-label">Naam</div><div class="hero-meta-waarde">Raisa Ramkhelawan</div></div>
+      <div><div class="hero-meta-label">Opleiding</div><div class="hero-meta-waarde">Business Studies HRM, deeltijd</div></div>
+      <div><div class="hero-meta-label">Instelling</div><div class="hero-meta-waarde">Zuyd Hogeschool, Heerlen</div></div>
+      <div><div class="hero-meta-label">Werkgever</div><div class="hero-meta-waarde">MSC Laurentius, Roermond</div></div>
     </div>
   </div>
-
   <div class="scroll-indicator"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
-<!-- ── INTRO ── -->
 <section class="intro-sectie" id="intro">
   <div class="intro-inner">
     <div class="intro-sidebar">
@@ -690,43 +422,25 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
       <div class="sidebar-nr">00</div>
     </div>
     <div>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Ik ben geboren en opgegroeid in <strong>Zeeuws-Vlaanderen</strong>, in een gezin waarin twee werelden vanzelfsprekend samenkwamen: mijn vader is Surinaams, mijn moeder Nederlands. Daardoor leerde ik al vroeg schakelen tussen perspectieven, gewoontes en manieren van communiceren. Wat voor de één logisch is, is dat voor de ander niet altijd. Die sensitiviteit neem ik nog steeds mee in mijn werk als HR-professional.
-      </p>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        In 2019 verhuisde ik naar <strong>Limburg</strong>, voor de liefde. Dat was een grote persoonlijke stap: weg uit mijn vertrouwde omgeving, opnieuw wortelen, een nieuw netwerk opbouwen en mezelf professioneel opnieuw positioneren. Achteraf zie ik die verhuizing als een vroeg kantelpunt in mijn ontwikkeling. Ik leerde dat groei niet altijd comfortabel voelt, maar juist vaak begint wanneer je je vaste grond verlaat.
-      </p>
-      <div class="inline-quote fade-up">
-        "Mijn journey begon niet op school, maar op het moment dat ik leerde bewegen tussen werelden."
-      </div>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Ik herinner me ook de keukentafel nog goed. Mijn moeder naast me, het huiswerk uitgespreid, en ik — huilend — omdat ik het maar niet begreep. Breuken. Tafels. Kloklezen. Dingen die mijn klasgenoten moeiteloos leken te doen, voelden voor mij als een muur. Later bleek er een naam voor te zijn: <strong>dyscalculie</strong>. Die diagnose gaf taal aan iets wat ik lang had gevoeld: ik was niet minder slim, ik moest anders leren bouwen.
-      </p>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Die ervaring heeft mijn leerhouding gevormd. Ik ben niet iemand die vanzelfsprekend via de kortste route leert. Ik moet verbanden zien, systemen begrijpen en informatie visueel maken. Precies daarom past deze website als vorm bij mij. Grafisch ontwerp is voor mij geen versiering, maar een manier om betekenis te ordenen. Een complexe ontwikkeling wordt zichtbaar wanneer je haar ontwerpt.
-      </p>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Ook mijn gezondheid heeft invloed gehad op mijn ontwikkeling. De diagnose <strong>hEDS</strong>, aangevuld met POTS en MCAS, maakte dat ik opnieuw moest leren omgaan met grenzen, energie en onzekerheid. Ik heb ervaren dat zelfsturing niet alleen gaat over doelen halen, maar ook over realistisch plannen, signalen serieus nemen en blijven groeien zonder jezelf voorbij te lopen.
-      </p>
-      <p class="body-p fade-up" style="color:var(--blauw-diep);">
-        Dit portfolio is daarom geen standaard reflectieverslag. Het is een digitale blauwdruk van mijn ontwikkeling: persoonlijk én professioneel, creatief én analytisch. Ik kijk terug op wie ik was vóór de opleiding, onderzoek hoe ik mij tijdens de opleiding heb ontwikkeld en beschrijf hoe ik mijn ontwikkeling na de opleiding bewust voortzet.
-      </p>
+      <p class="body-p fade-up">Ik ben geboren en opgegroeid in <strong>Zeeuws-Vlaanderen</strong>, in een gezin waarin twee werelden vanzelfsprekend samenkwamen: mijn vader is Surinaams, mijn moeder Nederlands. Daardoor leerde ik al vroeg schakelen tussen perspectieven, gewoontes en manieren van communiceren.</p>
+      <p class="body-p fade-up">In 2019 verhuisde ik naar <strong>Limburg</strong>, voor de liefde. Dat was een grote persoonlijke stap: weg uit mijn vertrouwde omgeving, opnieuw wortelen, een nieuw netwerk opbouwen en mezelf professioneel opnieuw positioneren.</p>
+      <div class="inline-quote fade-up">"Mijn journey begon niet op school, maar op het moment dat ik leerde bewegen tussen werelden."</div>
+      <p class="body-p fade-up">Later bleek er een naam voor iets wat ik lang had gevoeld: <strong>dyscalculie</strong>. Die diagnose gaf taal aan iets wat ik al wist: ik was niet minder slim, ik moest anders leren bouwen. Die ervaring heeft mijn leerhouding gevormd.</p>
+      <p class="body-p fade-up">Ook mijn gezondheid heeft invloed gehad. De diagnose <strong>hEDS</strong>, aangevuld met POTS en MCAS, maakte dat ik opnieuw moest leren omgaan met grenzen, energie en onzekerheid.</p>
       <div class="theorie-block fade-up">
         <div class="theorie-label-s">Theoretisch kader — Kolb (1984)</div>
-        <p>Mijn ontwikkeling sluit aan bij Kolb's leercyclus: ervaren, reflecteren, conceptualiseren en experimenteren. Bij mij loopt leren zelden lineair. Ik ervaar iets in de praktijk, reflecteer erop, zoek taal en theorie om het te begrijpen en probeer daarna bewuster ander gedrag uit. Zo werd feedback bij Timing later een leerdoel bij LIOF en uiteindelijk een onderzoeksvraag binnen mijn scriptie.</p>
+        <p>Mijn ontwikkeling sluit aan bij Kolb's leercyclus: ervaren, reflecteren, conceptualiseren en experimenteren. Zo werd feedback bij Timing later een leerdoel bij LIOF en uiteindelijk een onderzoeksvraag binnen mijn scriptie.</p>
         <cite>Kolb, D.A. (1984). Experiential learning. Prentice-Hall.</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CRITERIA / SCOREKAART ── -->
 <section class="score-sectie" id="criteria">
   <div class="score-inner">
     <div class="section-eyebrow fade-up">Beoordelingskader</div>
     <h2 class="section-title fade-up">De competenties als ontwerpprincipes</h2>
-    <p class="section-lead fade-up">De journey vraagt om reflectie op alle competenties vanuit verschillende perspectieven: hoe ik begon, hoe ik mij ontwikkelde en hoe ik verder groei. Daarom gebruik ik de competenties niet als losse checklist, maar als ontwerpprincipes voor mijn professionele ontwikkeling.</p>
-
+    <p class="section-lead fade-up">De journey vraagt om reflectie op alle competenties vanuit verschillende perspectieven. Daarom gebruik ik de competenties niet als losse checklist, maar als ontwerpprincipes voor mijn professionele ontwikkeling.</p>
     <div class="score-grid fade-up">
       <div class="score-card"><div class="score-top"><span class="score-num">1.1</span><span class="score-weight">10%</span></div><h3 class="score-title">Critical thinking & problem solving</h3><p class="score-text">Van snel oplossen naar analyseren, alternatieven afwegen en aannames zichtbaar maken.</p></div>
       <div class="score-card"><div class="score-top"><span class="score-num">1.2</span><span class="score-weight">7,5%</span></div><h3 class="score-title">Creative thinking</h3><p class="score-text">Mijn grafische hobby werd een professionele vaardigheid: complexe informatie toegankelijk maken.</p></div>
@@ -744,239 +458,103 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
   </div>
 </section>
 
-<!-- ── TIJDLIJN ── -->
 <section class="tijdlijn-sectie" id="tijdlijn">
   <div class="container">
     <div class="tl-header">De bouwtekening — chronologisch</div>
     <div class="tl-items">
-      <div class="tl-item">
-        <div class="tl-jaar">Tot 2019</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">Zeeuws-Vlaanderen — mijn vertrekpunt</div>
-          <div class="tl-tekst">Geboren en opgegroeid in Zeeuws-Vlaanderen, in een Surinaams-Nederlands gezin. Hier ontstond mijn vermogen om tussen perspectieven te bewegen en verschillen niet als probleem, maar als informatie te zien.</div>
-          <span class="tl-badge">Persoonlijke basis</span>
-        </div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-jaar">2019</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">Verhuizing naar Limburg — voor de liefde</div>
-          <div class="tl-tekst">Een nieuw netwerk, een nieuwe regio en een nieuwe professionele omgeving. Ik moest opnieuw beginnen en ontdekte dat aanpassingsvermogen ook een vorm van leiderschap is.</div>
-          <span class="tl-badge">Kantelpunt</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-jaar">2018–2019</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">HR-stagiaire — Manpower Terneuzen</div>
-          <div class="tl-tekst">Mijn eerste echte HR-context. Ik leerde wat operationeel HR betekent: zorgvuldig werken, schakelen tussen kandidaten en klantvragen en professioneel communiceren in een commerciële omgeving.</div>
-          <span class="tl-badge">Stage</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-jaar">2019–2020</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">HR-medewerker — Mise en Place</div>
-          <div class="tl-tekst">Contractbeheer, verloning en aanspreekpunt zijn voor medewerkers. Ik werd sterker in nauwkeurigheid en procesdenken, maar merkte ook dat ik niet alleen wilde uitvoeren: ik wilde begrijpen waarom processen zo waren ingericht.</div>
-          <span class="tl-badge">Uitvoerend HR</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-jaar">2020–2024</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">Intercedent → Senior Intercedent — Timing</div>
-          <div class="tl-tekst">Ik groeide door naar senior, werd key user, stagebegeleider en jobcoach. De feedback "laat meer van jezelf horen" werd een belangrijk leerpunt: mijn deskundigheid had pas waarde als ik die ook zichtbaar durfde in te brengen.</div>
-          <span class="tl-badge">Groei</span>
-        </div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-jaar">2021</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">Start Business Studies deeltijd — Zuyd Hogeschool</div>
-          <div class="tl-tekst">Ik koos bewust voor een opleiding naast mijn werk. Niet omdat het moest, maar omdat ik mijn praktijkervaring wilde verdiepen met bedrijfskundige en HRM-theorie.</div>
-          <span class="tl-badge">Studiekeuze</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-jaar">2024–2025</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">HR Adviseur — LIOF</div>
-          <div class="tl-tekst">Bij LIOF kwam ik dichter bij strategisch HR: reorganisatie, employer branding, HR-analytics, strategische personeelsplanning en organisatieontwikkeling. Tegelijkertijd verviel mijn eigen functie door de reorganisatie. Ik leerde professioneel blijven handelen terwijl het proces mij persoonlijk raakte.</div>
-          <span class="tl-badge">Strategisch HR</span>
-        </div>
-      </div>
-      <div class="tl-item accent">
-        <div class="tl-jaar">Dec 2025 – nu</div>
-        <div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div>
-        <div class="tl-content">
-          <div class="tl-titel">HR Adviseur — MSC Laurentius, Roermond</div>
-          <div class="tl-tekst">Een complexe professionele organisatie met medisch specialisten, vakgroepen, bestuurlijke verhoudingen en hoge autonomie. Hier komt mijn scriptiethema letterlijk tot leven: hoe positioneer je HR als strategische businesspartner van het bestuur?</div>
-          <span class="tl-badge">Heden</span>
-        </div>
-      </div>
+      <div class="tl-item"><div class="tl-jaar">Tot 2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Zeeuws-Vlaanderen — mijn vertrekpunt</div><div class="tl-tekst">Geboren en opgegroeid in een Surinaams-Nederlands gezin. Hier ontstond mijn vermogen om tussen perspectieven te bewegen.</div><span class="tl-badge">Persoonlijke basis</span></div></div>
+      <div class="tl-item accent"><div class="tl-jaar">2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Verhuizing naar Limburg — voor de liefde</div><div class="tl-tekst">Een nieuw netwerk, een nieuwe regio. Ik leerde dat aanpassingsvermogen ook een vorm van leiderschap is.</div><span class="tl-badge">Kantelpunt</span></div></div>
+      <div class="tl-item"><div class="tl-jaar">2018–2019</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR-stagiaire — Manpower Terneuzen</div><div class="tl-tekst">Mijn eerste echte HR-context. Ik leerde wat operationeel HR betekent.</div><span class="tl-badge">Stage</span></div></div>
+      <div class="tl-item"><div class="tl-jaar">2019–2020</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR-medewerker — Mise en Place</div><div class="tl-tekst">Contractbeheer, verloning en aanspreekpunt. Ik merkte dat ik niet alleen wilde uitvoeren.</div><span class="tl-badge">Uitvoerend HR</span></div></div>
+      <div class="tl-item"><div class="tl-jaar">2020–2024</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Intercedent → Senior — Timing</div><div class="tl-tekst">Gegroeid naar senior, key user en jobcoach. Feedback "laat meer van jezelf horen" werd een belangrijk leerpunt.</div><span class="tl-badge">Groei</span></div></div>
+      <div class="tl-item accent"><div class="tl-jaar">2021</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">Start Business Studies deeltijd — Zuyd</div><div class="tl-tekst">Bewust gekozen om praktijkervaring te verdiepen met bedrijfskundige en HRM-theorie.</div><span class="tl-badge">Studiekeuze</span></div></div>
+      <div class="tl-item"><div class="tl-jaar">2024–2025</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR Adviseur — LIOF</div><div class="tl-tekst">Strategisch HR: reorganisatie, employer branding, analytics, personeelsplanning. En mijn eigen functie verviel door de reorganisatie.</div><span class="tl-badge">Strategisch HR</span></div></div>
+      <div class="tl-item accent"><div class="tl-jaar">Dec 2025 – nu</div><div class="tl-midden"><div class="tl-dot"></div><div class="tl-verbind"></div></div><div class="tl-content"><div class="tl-titel">HR Adviseur — MSC Laurentius, Roermond</div><div class="tl-tekst">Een complexe professionele organisatie met medisch specialisten. Mijn scriptiethema komt letterlijk tot leven.</div><span class="tl-badge">Heden</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ── VOOR (01) ── -->
 <section class="fase fase-01" id="voor">
   <div class="fase-inner">
     <div class="fase-kop fade-up">
-      <div>
-        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--geel);"></span>01 — Vóór de opleiding</div>
-        <h2 class="fase-h2">Sterk in aanpakken, zoekend naar onderbouwing</h2>
-      </div>
-      <div class="fase-kop-rechts">
-        <p>Voordat ik Business Studies begon, had ik al praktijkervaring. Ik kon veel oplossen, maar deed dat vooral intuïtief. De opleiding gaf mij taal, theorie en structuur.</p>
-      </div>
+      <div><div class="fase-kop-id"><span class="kleur-dot" style="background:var(--geel);"></span>01 — Vóór de opleiding</div><h2 class="fase-h2">Sterk in aanpakken, zoekend naar onderbouwing</h2></div>
+      <div class="fase-kop-rechts"><p>Voordat ik Business Studies begon, had ik al praktijkervaring. Ik kon veel oplossen, maar deed dat vooral intuïtief. De opleiding gaf mij taal, theorie en structuur.</p></div>
     </div>
-
-    <p class="fase-body-p fade-up">Vóór de opleiding was ik vooral een doener. Ik werkte hard, voelde verantwoordelijkheid en loste problemen graag snel op. Dat paste goed bij mijn rollen in de uitzend- en HR-praktijk, waar tempo, nauwkeurigheid en klantgerichtheid belangrijk zijn. Tegelijkertijd merkte ik dat ik bij complexere vraagstukken vaak nog miste wat ik nu wél heb: een theoretisch kader om situaties te analyseren.</p>
-    <p class="fase-body-p fade-up">Mijn persoonlijke achtergrond hielp mij in samenwerking en communicatie. Omdat ik gewend was om tussen verschillende werelden te bewegen — Zeeuws-Vlaanderen, een Surinaams-Nederlands gezin, later Limburg — kon ik mij relatief makkelijk aanpassen aan verschillende mensen. Maar professioneel bleef ik soms nog te voorzichtig. Ik voelde vaak wel wat nodig was, maar sprak dat niet altijd uit.</p>
-
+    <p class="fase-body-p fade-up">Vóór de opleiding was ik vooral een doener. Ik werkte hard, voelde verantwoordelijkheid en loste problemen graag snel op. Tegelijkertijd merkte ik dat ik bij complexere vraagstukken miste wat ik nu wél heb: een theoretisch kader om situaties te analyseren.</p>
     <div class="comp-grid fade-up">
-      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.1 Critical thinking & problem solving</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Bij Timing, Manpower en Mise en Place loste ik veel praktische problemen op: personeelsplanning, contractvragen, verloning, verzuim en klantissues. Mijn kracht lag in actiegerichtheid. Mijn ontwikkelpunt was dat ik nog weinig afstand nam om aannames te onderzoeken of een probleem in breder organisatieperspectief te plaatsen.</p><span class="comp-tag">Van oplossen naar analyseren</span></div>
-      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.2 Creative thinking</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Grafisch ontwerp was al jaren een hobby. Ik maakte graag dingen mooier, duidelijker en visueler. Pas later begreep ik dat dit meer was dan creativiteit: het is een manier om complexe informatie toegankelijk te maken en mensen mee te nemen in een verhaal.</p><span class="comp-tag">Grafisch ontwerp als basis</span></div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.1 Critical thinking</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Ik loste veel praktische problemen op. Mijn kracht lag in actiegerichtheid. Mijn ontwikkelpunt: nog weinig afstand nemen om aannames te onderzoeken.</p><span class="comp-tag">Van oplossen naar analyseren</span></div>
+      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.2 Creative thinking</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Grafisch ontwerp was al jaren een hobby. Pas later begreep ik dat dit meer was dan creativiteit: het is een manier om complexe informatie toegankelijk te maken.</p><span class="comp-tag">Grafisch ontwerp als basis</span></div>
     </div>
-    <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.3 Collaboration</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Samenwerken deed ik al veel, onder andere als intercedent, jobcoach en stagebegeleider. Ik kon anderen ondersteunen en voelde snel aan wat iemand nodig had. Mijn samenwerking was vooral praktisch en relationeel; ik was nog minder bewust bezig met belangen, posities en organisatiedoelen.</p><span class="comp-tag">Samenwerken in uitvoering</span></div>
-      <div class="comp-card c-geel"><div class="comp-kop"><span class="comp-naam">1.4 Communication</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Communicatie was tegelijk een kracht en een leerpunt. Eén op één kon ik goed aansluiten, maar in groepen of richting leidinggevenden hield ik mij soms in. De feedback "laat meer van jezelf horen" raakte precies dat punt: mijn kennis was aanwezig, maar nog niet altijd zichtbaar.</p><span class="comp-tag">Feedback als kantelpunt</span></div>
-    </div>
-
     <div class="reflectie-grid fade-up">
       <div class="reflectie-card"><h4>Wat ik toen al kon</h4><p>Hard werken, verantwoordelijkheid nemen, praktisch oplossen, mensen aanvoelen en creatieve middelen inzetten.</p></div>
-      <div class="reflectie-card"><h4>Wat nog ontbrak</h4><p>Theoretische onderbouwing, strategische taal, lef om mijn advies zichtbaar te maken en afstand nemen van de waan van de dag.</p></div>
-      <div class="reflectie-card"><h4>Wat ik nodig had</h4><p>Een opleiding die praktijkervaring koppelde aan bedrijfskundig denken, HRM-theorie en professionele reflectie.</p></div>
+      <div class="reflectie-card"><h4>Wat nog ontbrak</h4><p>Theoretische onderbouwing, strategische taal, lef om mijn advies zichtbaar te maken.</p></div>
+      <div class="reflectie-card"><h4>Wat ik nodig had</h4><p>Een opleiding die praktijkervaring koppelde aan bedrijfskundig denken en HRM-theorie.</p></div>
     </div>
-
     <div class="fase-quote fade-up">"Ik was al aan het bouwen, maar ik had nog geen volledige bouwtekening."</div>
   </div>
 </section>
 
-<!-- ── TIJDENS (02) ── -->
 <section class="fase fase-02" id="tijdens">
   <div class="fase-inner">
     <div class="fase-kop fade-up">
-      <div>
-        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--koraal);"></span>02 — Tijdens de opleiding</div>
-        <h2 class="fase-h2">Van uitvoering naar professioneel advies</h2>
-      </div>
-      <div class="fase-kop-rechts">
-        <p>Tijdens de opleiding leerde ik theorie niet zien als iets voor school, maar als lens om praktijkvraagstukken scherper te begrijpen.</p>
-      </div>
+      <div><div class="fase-kop-id"><span class="kleur-dot" style="background:var(--koraal);"></span>02 — Tijdens de opleiding</div><h2 class="fase-h2">Van uitvoering naar professioneel advies</h2></div>
+      <div class="fase-kop-rechts"><p>Tijdens de opleiding leerde ik theorie niet zien als iets voor school, maar als lens om praktijkvraagstukken scherper te begrijpen.</p></div>
     </div>
-
-    <p class="fase-body-p fade-up">Tijdens Business Studies veranderde mijn manier van kijken. Waar ik eerder dacht in taken en oplossingen, leerde ik denken in systemen, belangen, processen en strategie. Vooral de combinatie van werken en studeren maakte mijn ontwikkeling sterk: bijna elke theorie kon ik direct toetsen in de praktijk.</p>
-    <p class="fase-body-p fade-up">Bij <strong>LIOF</strong> kwam dat scherp naar voren. Ik werkte aan HR-thema’s als employer branding, strategische personeelsplanning, HR-data en organisatieontwikkeling. Tegelijkertijd maakte de organisatie een reorganisatie door, waarbij ook mijn eigen functie kwam te vervallen. Dat vroeg om professionaliteit onder druk: zorgvuldig blijven werken, omgaan met onzekerheid en de organisatie blijven ondersteunen terwijl ik zelf onderdeel was van de verandering.</p>
-    <p class="fase-body-p fade-up">Bij <strong>MSC Laurentius</strong> kreeg mijn ontwikkeling een nieuwe laag. Ik werk in een professionele organisatie met medisch specialisten, vakgroepen en bestuurlijke besluitvorming. Mijn scriptie over de positionering van HR als strategische businesspartner is daardoor niet alleen een schoolopdracht, maar een vraagstuk uit mijn dagelijkse werkpraktijk.</p>
-
+    <p class="fase-body-p fade-up">Tijdens Business Studies veranderde mijn manier van kijken. Waar ik eerder dacht in taken en oplossingen, leerde ik denken in systemen, belangen, processen en strategie.</p>
+    <p class="fase-body-p fade-up">Bij <strong>LIOF</strong> werkte ik aan employer branding, strategische personeelsplanning en HR-data. Bij <strong>MSC Laurentius</strong> kreeg mijn ontwikkeling een nieuwe laag — mijn scriptie over HR als strategische businesspartner is geen schoolopdracht maar een vraagstuk uit mijn dagelijkse werkpraktijk.</p>
     <div class="comp-grid fade-up">
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Bij LIOF werkte ik aan employer branding en digitale recruitmentprocessen. Bij MSC Laurentius denk ik mee over e-learning, compliance-informatie en professionalisering van HR-processen. Innovatie betekent voor mij niet alleen iets nieuws bedenken, maar vooral zorgen dat het werkt in de context waarin mensen het moeten gebruiken.</p><span class="comp-tag">Van idee naar toepassing</span></div>
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Mijn scriptie vroeg om het vinden, selecteren en wegen van bronnen. Ik gebruikte onder andere Mintzberg, Ulrich, Boselie, Pol, Boxall & Purcell en Galbraith om de HR-positionering binnen MSC Laurentius te analyseren. Ik leerde niet alleen bronnen verzamelen, maar ook beoordelen welke theorie past bij welke context.</p><span class="comp-tag">Scriptie / literatuuronderzoek</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">1.5 Implement innovations</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Bij LIOF werkte ik aan employer branding en digitale recruitmentprocessen. Innovatie betekent voor mij: zorgen dat het werkt in de context.</p><span class="comp-tag">Van idee naar toepassing</span></div>
+      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.1 Information literacy</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Mijn scriptie vroeg om bronnen vinden, selecteren en wegen. Ik leerde niet alleen bronnen verzamelen, maar ook beoordelen welke theorie past bij welke context.</p><span class="comp-tag">Scriptie / literatuuronderzoek</span></div>
     </div>
-    <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.2 Media literacy</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Door mijn grafische interesse werd ik mij steeds bewuster van de kracht van vorm. Een boodschap landt anders wanneer tekst, beeld en structuur kloppen. Dat zie je in vacatureteksten, employer branding, LinkedIn-communicatie en in dit portfolio zelf: mijn digitale identiteit is onderdeel van mijn professionele verhaal.</p><span class="comp-tag">Digitale identiteit</span></div>
-      <div class="comp-card c-koraal"><div class="comp-kop"><span class="comp-naam">2.3 ICT skills</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik leerde informatie ordenen in systemen: van ATS-processen tot HR-data, compliance-overzichten en visuele modellen voor mijn scriptie. Ook deze website is een voorbeeld: ik vertaal een reflectieopdracht naar HTML, CSS, interactie en visuele navigatie.</p><span class="comp-tag">Data / website / visualisatie</span></div>
-    </div>
-
     <div class="fase-theorie fade-up">
-      <div class="ft-label">Theoretisch kader — Mintzberg, Ulrich, Boselie en Galbraith</div>
-      <p>Mintzberg helpt mij de professionele organisatie van MSC Laurentius te begrijpen: veel autonomie bij professionals en besluitvorming die niet altijd lineair loopt. Ulrich geeft taal aan de verschuiving van HR-uitvoerder naar businesspartner. Boselie laat zien dat HR-waarde ontstaat wanneer beleid niet alleen bedoeld is, maar ook goed wordt geïmplementeerd en ervaren. Galbraith helpt om organisaties niet als losse onderdelen te zien, maar als samenhang tussen strategie, structuur, processen, mensen en beloning.</p>
-      <cite>Mintzberg; Ulrich; Boselie; Galbraith — toegepast in mijn scriptieonderzoek.</cite>
+      <div class="ft-label">Theoretisch kader</div>
+      <p>Mintzberg helpt mij de professionele organisatie van MSC Laurentius te begrijpen. Ulrich geeft taal aan de verschuiving van HR-uitvoerder naar businesspartner. Boxall & Purcell laten zien dat HR-waarde ontstaat wanneer beleid ook goed wordt geïmplementeerd en ervaren.</p>
+      <cite>Mintzberg · Ulrich · Boxall & Purcell · Pol · Mooijman — toegepast in mijn scriptieonderzoek.</cite>
     </div>
   </div>
 </section>
 
-<!-- ── LIFE & CAREER (02b) ── -->
 <section class="fase fase-02b" id="skills">
   <div class="fase-inner">
     <div class="fase-kop fade-up">
-      <div>
-        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--roze);"></span>02b — Life & career skills</div>
-        <h2 class="fase-h2">De professional achter de functie</h2>
-      </div>
-      <div class="fase-kop-rechts">
-        <p>Professionele ontwikkeling gaat niet alleen over kennis. Het gaat ook over veerkracht, zelfsturing, positie innemen en verbinding maken.</p>
-      </div>
+      <div><div class="fase-kop-id"><span class="kleur-dot" style="background:var(--roze);"></span>02b — Life & career skills</div><h2 class="fase-h2">De professional achter de functie</h2></div>
+      <div class="fase-kop-rechts"><p>Professionele ontwikkeling gaat niet alleen over kennis. Het gaat ook over veerkracht, zelfsturing en positie innemen.</p></div>
     </div>
-
     <div class="comp-grid fade-up">
-      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.1 Flexibility & adaptability</span><span class="comp-pct">10,0%</span></div><p class="comp-tekst">Mijn verhuizing naar Limburg, de combinatie van werken en studeren, gezondheidsuitdagingen en een reorganisatie bij LIOF hebben mijn flexibiliteit gevormd. Ik heb geleerd dat aanpassingsvermogen niet betekent dat je alles maar ondergaat. Het betekent dat je bewust keuzes maakt binnen veranderende omstandigheden.</p><span class="comp-tag">Aanpassen zonder jezelf kwijt te raken</span></div>
-      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.2 Initiative & self-direction</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Ik koos zelf voor een deeltijdopleiding naast mijn werk, stuurde mijn eigen leerproces en zocht steeds opdrachten die aansloten bij mijn praktijk. In plaats van wachten op duidelijkheid, leerde ik richting geven: aan mijn studie, mijn loopbaan en mijn professionele identiteit.</p><span class="comp-tag">Eigen regie</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.1 Flexibility & adaptability</span><span class="comp-pct">10%</span></div><p class="comp-tekst">Verhuizing, reorganisatie, gezondheidsuitdagingen — ik heb geleerd dat aanpassingsvermogen niet betekent dat je alles ondergaat. Het betekent bewust kiezen binnen veranderende omstandigheden.</p><span class="comp-tag">Aanpassen zonder jezelf kwijt te raken</span></div>
+      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn leiderschap ontwikkelde zich zonder formele titel. Als HR-adviseur geef ik richting door vragen te stellen, structuur aan te brengen en besluiten voor te bereiden.</p><span class="comp-tag">Leiderschap zonder titel</span></div>
     </div>
-    <div class="comp-grid fade-up fd1">
-      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.3 Social & cross-cultural skills</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn Surinaams-Nederlandse achtergrond, mijn verhuizing van Zeeuws-Vlaanderen naar Limburg en mijn werk in verschillende organisaties hebben mij geleerd dat context ertoe doet. Bij MSC Laurentius werk ik met medisch specialisten, bestuurders, HRM LZR en andere stakeholders. Ik moet belangen herkennen, taal aanpassen en vertrouwen opbouwen zonder formele macht.</p><span class="comp-tag">Schakelen tussen werelden</span></div>
-      <div class="comp-card c-roze"><div class="comp-kop"><span class="comp-naam">3.4 Leadership</span><span class="comp-pct">7,5%</span></div><p class="comp-tekst">Mijn leiderschap ontwikkelde zich vooral zonder formele titel. Als HR-adviseur geef ik richting door vragen te stellen, structuur aan te brengen, mensen mee te nemen en besluiten voor te bereiden. Leiderschap is voor mij steeds meer: overzicht creëren zodat anderen beter kunnen handelen.</p><span class="comp-tag">Leiderschap zonder titel</span></div>
-    </div>
-
-    <div class="reflectie-grid fade-up">
-      <div class="reflectie-card"><h4>Denken</h4><p>Ik denk minder vanuit losse taken en meer vanuit samenhang: wat betekent dit voor strategie, structuur, gedrag en besluitvorming?</p></div>
-      <div class="reflectie-card"><h4>Handelen</h4><p>Ik durf vaker positie in te nemen, mijn advies te onderbouwen en eerder zichtbaar te worden in plaats van af te wachten.</p></div>
-      <div class="reflectie-card"><h4>Presteren</h4><p>Ik lever professioneler resultaat omdat ik niet alleen uitvoer, maar vooraf analyseer wat nodig is voor impact.</p></div>
-    </div>
-
     <div class="fase-quote fade-up">"Ik heb geleerd dat professioneel groeien niet betekent dat je iemand anders wordt, maar dat je bewuster inzet wie je al bent."</div>
   </div>
 </section>
 
-<!-- ── NA (03) ── -->
 <section class="fase fase-03" id="na">
   <div class="fase-inner">
     <div class="fase-kop fade-up">
-      <div>
-        <div class="fase-kop-id"><span class="kleur-dot" style="background:var(--paars);"></span>03 — Na de opleiding</div>
-        <h2 class="fase-h2">De volgende bouwtekening ligt klaar</h2>
-      </div>
-      <div class="fase-kop-rechts">
-        <p>Na de opleiding wil ik mijn ontwikkeling niet afronden, maar verdiepen. De basis is gelegd; nu gaat het om verstevigen, verbreden en strategisch toepassen.</p>
-      </div>
+      <div><div class="fase-kop-id"><span class="kleur-dot" style="background:var(--paars);"></span>03 — Na de opleiding</div><h2 class="fase-h2">De volgende bouwtekening ligt klaar</h2></div>
+      <div class="fase-kop-rechts"><p>Na de opleiding wil ik mijn ontwikkeling niet afronden, maar verdiepen. De basis is gelegd; nu gaat het om verstevigen en strategisch toepassen.</p></div>
     </div>
-
-    <p class="fase-body-p fade-up">Ik rond de opleiding af terwijl ik werk in de meest complexe HR-context die ik tot nu toe heb gekend. Bij <strong>MSC Laurentius</strong> werk ik binnen een medisch specialistische coöperatie, dicht op bestuur, vakgroepen en ziekenhuiscontext. Dit vraagt om meer dan HR-kennis. Het vraagt om bestuurlijke sensitiviteit, strategisch inzicht, zorgvuldige communicatie en het vermogen om professionals mee te nemen zonder hiërarchische sturing.</p>
-    <p class="fase-body-p fade-up">Mijn ambitie is om verder te groeien richting een rol waarin ik HR strategisch kan positioneren en ontwikkelen. Niet alleen beleid maken, maar ook een HR-functie bouwen die bijdraagt aan organisatieontwikkeling, professionele samenwerking en besluitvorming. De opleiding heeft mij geleerd dat ik daar niet op hoef te wachten tot iemand mij die positie geeft. Ik kan er nu al naar handelen.</p>
-
+    <p class="fase-body-p fade-up">Ik rond de opleiding af terwijl ik werk in de meest complexe HR-context die ik tot nu toe heb gekend. Dit vraagt om bestuurlijke sensitiviteit, strategisch inzicht en het vermogen om professionals mee te nemen zonder hiërarchische sturing.</p>
     <div class="toekomst-grid fade-up">
       <div class="toekomst-kaart tk-meeneem">
         <div class="tk-kop">Materiaal dat ik meeneem</div>
         <div class="tk-item"><span class="tk-pijl">→</span>Strategisch HR-denken en bedrijfskundige taal.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Het vermogen om theorie en praktijk met elkaar te verbinden.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Creativiteit als professioneel middel om complexe informatie zichtbaar te maken.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Het vermogen om theorie en praktijk te verbinden.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Creativiteit als middel om complexe informatie zichtbaar te maken.</div>
         <div class="tk-item"><span class="tk-pijl">→</span>Zelfsturing onder druk, ook wanneer omstandigheden persoonlijk raken.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Cross-culturele sensitiviteit en het vermogen om tussen werelden te schakelen.</div>
       </div>
       <div class="toekomst-kaart tk-ontwikkel">
         <div class="tk-kop">Wat ik verder wil verstevigen</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Nog sterker worden in bestuurlijk en politiek navigeren.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Niet te snel zelf oplossen, maar anderen eerder meenemen in eigenaarschap.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Nog sterker worden in bestuurlijk navigeren.</div>
         <div class="tk-item"><span class="tk-pijl">→</span>Mijn adviesrol zichtbaarder innemen in grotere groepen.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Formele leiderschapservaring opbouwen en mijn stijl verder ontwikkelen.</div>
-        <div class="tk-item"><span class="tk-pijl">→</span>Blijven bewaken dat ambitie en belastbaarheid in balans blijven.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Formele leiderschapservaring opbouwen.</div>
+        <div class="tk-item"><span class="tk-pijl">→</span>Ambitie en belastbaarheid in balans blijven bewaken.</div>
       </div>
-    </div>
-
-    <div class="fase-theorie fade-up">
-      <div class="ft-label">Theoretisch kader — Pol en strategische HRM</div>
-      <p>Pol beschrijft HR-rollen zoals uitvoerder, adviseur, partner en leider. Mijn loopbaan laat een duidelijke verschuiving zien van uitvoerende HR naar een adviserende en steeds strategischere rol. Strategische HRM vraagt dat HR niet alleen reageert op vragen, maar actief bijdraagt aan organisatiedoelen, mensontwikkeling en besluitvorming. Dat is de richting waarin ik na de opleiding verder wil groeien.</p>
-      <cite>Pol; Boxall & Purcell; Ulrich — strategische HRM en HR-rollen.</cite>
-    </div>
-
-    <div class="comp-grid fade-up" style="margin-top:3rem;">
-      <div class="comp-card c-paars"><div class="comp-kop"><span class="comp-naam">Mijn professionele belofte</span><span class="comp-pct">Na de opleiding</span></div><p class="comp-tekst">Ik wil HR-positionering niet alleen onderzoeken, maar in de praktijk helpen bouwen. Mijn kracht ligt in het verbinden van mensen, structuur, taal en vorm. Ik wil complexe HR-vraagstukken toegankelijk maken, zodat bestuurders en professionals betere keuzes kunnen maken.</p><span class="comp-tag">Strategisch HR bouwen</span></div>
-      <div class="comp-card c-paars"><div class="comp-kop"><span class="comp-naam">Mijn ontwikkelvraag</span><span class="comp-pct">Vooruitblik</span></div><p class="comp-tekst">Hoe blijf ik mezelf zichtbaar en stevig positioneren als HR-professional, zonder mijn verbindende stijl te verliezen? Dat is de vraag die ik meeneem na deze opleiding.</p><span class="comp-tag">Zichtbaarheid en stevigheid</span></div>
     </div>
   </div>
 </section>
 
-<!-- ── AFSLUITING ── -->
 <section class="afsluiting" id="afsluiting">
-  <div class="afsluiting-glow"></div>
   <div class="blauwdruk-icon fade-up">
     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="10" y="10" width="60" height="60" stroke="white" stroke-width="1.5"/>
@@ -985,21 +563,15 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
       <line x1="30" y1="10" x2="30" y2="70" stroke="white" stroke-width="0.75"/>
       <line x1="50" y1="10" x2="50" y2="70" stroke="white" stroke-width="0.75"/>
       <circle cx="40" cy="40" r="12" stroke="white" stroke-width="1.5"/>
-      <line x1="40" y1="28" x2="40" y2="52" stroke="white" stroke-width="0.75"/>
-      <line x1="28" y1="40" x2="52" y2="40" stroke="white" stroke-width="0.75"/>
     </svg>
   </div>
-
   <h2 class="afsluiting-h2 fade-up">De blauwdruk<br>is nooit <em>af</em></h2>
-  <p class="afsluiting-tekst fade-up">Deze journey laat zien waar ik vandaan kom, hoe ik mij tijdens de opleiding heb ontwikkeld en waar ik naartoe wil. Ik ben gestart als iemand die vooral hard werkte en oploste. Ik rond af als HR-professional die analyseert, onderbouwt, ontwerpt, communiceert en steeds bewuster positie inneemt.</p>
-
+  <p class="afsluiting-tekst fade-up">Ik ben gestart als iemand die vooral hard werkte en oploste. Ik rond af als HR-professional die analyseert, onderbouwt, ontwerpt en steeds bewuster positie inneemt.</p>
   <div class="vraag-box fade-up"><p>"Welke verdieping voeg ik hierna toe aan mijn professionele blauwdruk?"</p></div>
-
   <div class="meta-grid fade-up">
     <div class="meta-item"><div class="meta-label">Student</div><div class="meta-waarde">Raisa Ramkhelawan</div></div>
     <div class="meta-item"><div class="meta-label">Opleiding</div><div class="meta-waarde">Business Studies HRM, deeltijd</div></div>
     <div class="meta-item"><div class="meta-label">Instelling</div><div class="meta-waarde">Zuyd Hogeschool, Heerlen</div></div>
-    <div class="meta-item"><div class="meta-label">Werkgever</div><div class="meta-waarde">MSC Laurentius, Roermond</div></div>
     <div class="meta-item"><div class="meta-label">Jaar</div><div class="meta-waarde">2026</div></div>
   </div>
 </section>
@@ -1013,19 +585,12 @@ footer span { font-family:'DM Mono',monospace; font-size:0.58rem; letter-spacing
 <script>
 window.addEventListener('scroll', () => {
   const h = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = h > 0 ? (window.scrollY / h * 100) : 0;
-  document.getElementById('progress').style.width = progress + '%';
+  const p = h > 0 ? (window.scrollY / h * 100) : 0;
+  document.getElementById('progress').style.width = p + '%';
 });
-
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('zichtbaar');
-      obs.unobserve(e.target);
-    }
-  });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('zichtbaar'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
-
 document.querySelectorAll('.fade-up, .tl-item').forEach(el => obs.observe(el));
 </script>
 </body>
