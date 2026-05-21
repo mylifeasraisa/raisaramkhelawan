@@ -7,23 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blauw:       #1A3A5C;
-  --blauw-mid:   #2D6FA8;
-  --blauw-licht: #E8F2FB;
-  --blauw-pale:  #F0F6FC;
-  --accent:      #2D6FA8;
+  --blauw:       #0281a9;
+  --blauw-mid:   #54bbcb;
+  --blauw-licht: #eef8fb;
+  --blauw-pale:  #f6fbfc;
+
+  --accent:      #5e1767;
+  --accent-soft: #9d76b0;
+
   --geel:        #E8A020;
   --koraal:      #D45A3A;
-  --roze:        #B0448A;
-  --paars:       #6B42A0;
-  --groen:       #2E8B57;
-  --tekst:       #1A2A3A;
-  --tekst-mid:   #4A5A6A;
-  --tekst-licht: #7A8A9A;
-  --lijn:        rgba(26,58,92,0.12);
-  --bg:          #FAFBFC;
-  --bg-sectie:   #FFFFFF;
-  --bg-donker:   #1A3A5C;
+  --roze:        #9d76b0;
+  --paars:       #5e1767;
+  --groen:       #54bbcb;
+
+  --tekst:       #1d2430;
+  --tekst-mid:   #566273;
+  --tekst-licht: #7d8a9c;
+
+  --lijn:        rgba(2,129,169,0.12);
+
+  --bg:          #fbfcfd;
+  --bg-sectie:   #ffffff;
+  --bg-donker:   #0281a9;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -62,12 +68,17 @@ nav {
   display:flex; align-items:center; gap:0.6rem;
 }
 .nav-logo-mark {
-  width:22px; height:22px;
+  width:28px; height:28px;
   border:1.5px solid var(--accent);
-  border-radius:3px;
+  border-radius:6px;
   display:grid; place-items:center;
 }
-.nav-logo-mark svg { width:10px; height:10px; fill:var(--accent); }
+.nav-logo-mark svg { 
+  width:14px; 
+  height:14px; 
+  stroke:var(--accent);
+  fill:none;
+}
 .nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links a {
   font-family:'DM Mono',monospace;
@@ -82,17 +93,20 @@ nav {
   display:flex; flex-direction:column; justify-content:flex-end;
   padding:0 3rem 5rem;
   position:relative; overflow:hidden;
-  background: linear-gradient(135deg, #EFF5FB 0%, #F7FAFD 50%, #EDF3F9 100%);
+  background:
+    radial-gradient(circle at top left, rgba(157,118,176,0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(84,187,203,0.18), transparent 30%),
+    linear-gradient(135deg, #f4f8fb 0%, #ffffff 45%, #eef8fb 100%);
 }
 .hero-accent-line {
   position:absolute; top:0; left:0; right:0; height:4px;
-  background: linear-gradient(to right, var(--geel), var(--accent));
+  background: linear-gradient(to right, #5e1767, #9d76b0, #0281a9, #54bbcb);
 }
 .hero-grid-bg {
   position:absolute; inset:0; pointer-events:none;
   background-image:
-    linear-gradient(rgba(26,58,92,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,58,92,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(2,129,169,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,129,169,0.06) 1px, transparent 1px);
   background-size:60px 60px;
 }
 .hero-lines {
@@ -115,7 +129,7 @@ nav {
   margin-bottom:1rem;
 }
 .hero-h1 .naam { color:var(--tekst-mid); }
-.hero-h1 .accent-txt { color:var(--accent); }
+.hero-h1 .accent-txt { color:#5e1767; }
 .hero-sub {
   font-size:1rem; color:var(--tekst-mid);
   font-weight:300; line-height:1.7;
@@ -182,7 +196,7 @@ section { position:relative; }
 .sidebar-nr {
   font-family:'Syne',sans-serif;
   font-size:6rem; font-weight:800;
-  color:rgba(26,58,92,0.06); line-height:1;
+  color:rgba(2,129,169,0.06); line-height:1;
   margin-top:1rem; letter-spacing:-0.04em;
 }
 .body-p { font-size:1rem; line-height:1.85; font-weight:300; margin-bottom:1.5rem; color:var(--tekst); }
@@ -228,13 +242,16 @@ section { position:relative; }
 .score-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
 .score-card {
   background:#FFFFFF;
-  border:1px solid rgba(26,58,92,0.1);
+  border:1px solid rgba(2,129,169,0.10);
   border-radius:12px; padding:1.25rem;
   min-height:190px;
-  box-shadow:0 2px 12px rgba(26,58,92,0.04);
+  box-shadow:0 2px 12px rgba(94,23,103,0.04);
   transition:box-shadow 0.2s, transform 0.2s;
 }
-.score-card:hover { box-shadow:0 6px 24px rgba(26,58,92,0.09); transform:translateY(-2px); }
+.score-card:hover { 
+  box-shadow:0 10px 35px rgba(94,23,103,0.12); 
+  transform:translateY(-2px); 
+}
 .score-top { display:flex; justify-content:space-between; gap:1rem; align-items:start; margin-bottom:0.7rem; }
 .score-num { font-family:'DM Mono',monospace; color:var(--accent); font-size:0.66rem; letter-spacing:0.1em; }
 .score-title { font-family:'Syne',sans-serif; font-size:0.92rem; font-weight:700; line-height:1.2; margin-bottom:0.6rem; color:var(--blauw); }
@@ -247,10 +264,10 @@ section { position:relative; }
   align-items:center;
   margin:2.5rem 0;
   padding:1rem;
-  border:1px solid rgba(26,58,92,0.12);
+  border:1px solid rgba(2,129,169,0.12);
   border-radius:18px;
   background:linear-gradient(135deg, #FFFFFF 0%, var(--blauw-pale) 100%);
-  box-shadow:0 8px 28px rgba(26,58,92,0.06);
+  box-shadow:0 8px 28px rgba(2,129,169,0.06);
 }
 .journey-photo {
   width:100%;
@@ -290,10 +307,10 @@ section { position:relative; }
 }
 .criteria-proof-card {
   background:#FFFFFF;
-  border:1px solid rgba(26,58,92,0.11);
+  border:1px solid rgba(2,129,169,0.11);
   border-radius:14px;
   padding:1.35rem;
-  box-shadow:0 2px 14px rgba(26,58,92,0.045);
+  box-shadow:0 2px 14px rgba(94,23,103,0.045);
   position:relative;
   overflow:hidden;
 }
@@ -302,7 +319,7 @@ section { position:relative; }
   position:absolute;
   top:0; left:0; right:0;
   height:3px;
-  background:linear-gradient(90deg, var(--geel), var(--accent));
+  background:linear-gradient(90deg, #5e1767, #9d76b0, #0281a9, #54bbcb);
 }
 .criteria-proof-top {
   display:flex;
@@ -370,7 +387,12 @@ section { position:relative; }
 }
 
 
-.tijdlijn-sectie { background:var(--blauw); padding:7rem 3rem; position:relative; overflow:hidden; }
+.tijdlijn-sectie { 
+  background:linear-gradient(135deg, #0281a9 0%, #017193 100%); 
+  padding:7rem 3rem; 
+  position:relative; 
+  overflow:hidden; 
+}
 .tijdlijn-sectie::before {
   content:'TIJDLIJN'; position:absolute; top:50%; left:50%;
   transform:translate(-50%,-50%);
@@ -416,7 +438,7 @@ section { position:relative; }
 .fase-body-p { font-size:1rem; line-height:1.85; color:var(--tekst); font-weight:300; margin-bottom:1.4rem; max-width:880px; }
 .fase-body-p strong { font-weight:600; color:var(--blauw); }
 .comp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.5rem 0; }
-.comp-card { background:#FFFFFF; border:1px solid rgba(26,58,92,0.1); border-radius:12px; padding:1.5rem; transition:box-shadow 0.2s, transform 0.2s; position:relative; overflow:hidden; }
+.comp-card { background:#FFFFFF; border:1px solid rgba(2,129,169,0.10); border-radius:12px; padding:1.5rem; transition:box-shadow 0.2s, transform 0.2s; position:relative; overflow:hidden; }
 .comp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
 .c-geel::before { background:var(--geel); }
 .c-koraal::before { background:var(--koraal); }
@@ -424,7 +446,7 @@ section { position:relative; }
 .c-paars::before { background:var(--paars); }
 .c-blauw::before { background:var(--accent); }
 .c-groen::before { background:var(--groen); }
-.comp-card:hover { box-shadow:0 6px 24px rgba(26,58,92,0.08); transform:translateY(-2px); }
+.comp-card:hover { box-shadow:0 6px 24px rgba(94,23,103,0.10); transform:translateY(-2px); }
 .comp-kop { display:flex; justify-content:space-between; gap:0.5rem; margin-bottom:0.75rem; }
 .comp-naam { font-family:'Syne',sans-serif; font-size:0.88rem; font-weight:700; color:var(--blauw); line-height:1.25; }
 .comp-tekst { font-size:0.82rem; line-height:1.7; color:var(--tekst-mid); font-weight:300; margin-bottom:0.85rem; }
@@ -440,7 +462,7 @@ section { position:relative; }
 .reflectie-card h4 { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; color:var(--blauw); margin-bottom:0.6rem; }
 .reflectie-card p { font-size:0.8rem; line-height:1.7; color:var(--tekst-mid); }
 .bewijs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.5rem 0; }
-.bewijs-card { background:#FFFFFF; border:1px solid rgba(26,58,92,0.1); border-radius:12px; padding:1.35rem; box-shadow:0 2px 12px rgba(26,58,92,0.04); }
+.bewijs-card { background:#FFFFFF; border:1px solid rgba(2,129,169,0.10); border-radius:12px; padding:1.35rem; box-shadow:0 2px 12px rgba(94,23,103,0.04); }
 .bewijs-card h4 { font-family:'Syne',sans-serif; font-size:0.92rem; font-weight:700; color:var(--blauw); margin-bottom:0.55rem; }
 .bewijs-card p { font-size:0.8rem; line-height:1.7; color:var(--tekst-mid); font-weight:300; }
 .bewijs-label { display:inline-block; margin-bottom:0.7rem; font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
@@ -456,14 +478,31 @@ section { position:relative; }
 .tk-pijl { color:var(--accent); font-weight:600; flex-shrink:0; margin-top:0.05rem; }
 .tk-ontwikkel .tk-pijl { color:var(--tekst-licht); }
 
-.afsluiting { background:var(--blauw); padding:8rem 3rem 5rem; text-align:center; position:relative; overflow:hidden; }
+.afsluiting { 
+  background:linear-gradient(135deg, #0281a9 0%, #017193 58%, #5e1767 100%); 
+  padding:8rem 3rem 5rem; 
+  text-align:center; 
+  position:relative; 
+  overflow:hidden; 
+}
 .afsluiting::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size:60px 60px; pointer-events:none; }
 .blauwdruk-icon { position:relative; z-index:1; margin:0 auto 3rem; width:70px; height:70px; }
 .blauwdruk-icon svg { width:70px; height:70px; opacity:0.4; }
 .afsluiting-h2 { font-family:'Syne',sans-serif; font-size:clamp(2.5rem,6vw,6rem); font-weight:800; line-height:0.95; letter-spacing:-0.03em; color:rgba(255,255,255,0.95); margin-bottom:2rem; position:relative; z-index:1; }
 .afsluiting-h2 em { font-style:italic; color:rgba(255,255,255,0.5); font-weight:400; }
 .afsluiting-tekst { font-size:0.95rem; color:rgba(255,255,255,0.55); font-weight:300; line-height:1.8; max-width:580px; margin:0 auto 4rem; position:relative; z-index:1; }
-.vraag-box { display:inline-block; position:relative; z-index:1; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.07); border-radius:14px; padding:2rem 3rem; max-width:620px; margin:0 auto 5rem; }
+.vraag-box { 
+  display:inline-block; 
+  position:relative; 
+  z-index:1; 
+  border:1px solid rgba(157,118,176,0.25); 
+  background:rgba(255,255,255,0.08); 
+  backdrop-filter: blur(14px);
+  border-radius:14px; 
+  padding:2rem 3rem; 
+  max-width:620px; 
+  margin:0 auto 5rem; 
+}
 .profiel-box {
   display:flex;
   align-items:center;
@@ -478,8 +517,8 @@ section { position:relative; }
   border-radius:50%;
   object-fit:cover;
   flex-shrink:0;
-  border:3px solid rgba(255,255,255,0.25);
-  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+  border:4px solid rgba(84,187,203,0.45);
+  box-shadow:0 20px 55px rgba(94,23,103,0.28);
 }
 
 .vraag-content {
@@ -498,7 +537,13 @@ section { position:relative; }
 .meta-item { text-align:left; }
 .meta-label { font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:0.2rem; }
 .meta-waarde { font-size:0.82rem; color:rgba(255,255,255,0.6); }
-footer { background:#122840; padding:1.2rem 3rem; display:flex; justify-content:space-between; align-items:center; }
+footer { 
+  background:#421149; 
+  padding:1.2rem 3rem; 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+}
 footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing:0.1em; color:rgba(255,255,255,0.2); text-transform:uppercase; }
 
 .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
@@ -525,7 +570,10 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
 <nav>
   <div class="nav-logo">
     <div class="nav-logo-mark">
-      <svg viewBox="0 0 10 10"><rect x="1" y="1" width="3.5" height="3.5"/><rect x="5.5" y="1" width="3.5" height="3.5"/><rect x="1" y="5.5" width="3.5" height="3.5"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 18V6h6a4 4 0 0 1 0 8H7"/>
+        <path d="M13 14l4 4"/>
+      </svg>
     </div>
     Raisa Ramkhelawan
   </div>
@@ -545,14 +593,14 @@ footer span { font-family:'DM Mono',monospace; font-size:0.56rem; letter-spacing
   <div class="hero-grid-bg"></div>
   <div class="hero-lines">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <line x1="200" y1="0" x2="200" y2="900" stroke="#1A3A5C" stroke-width="0.5"/>
-      <line x1="0" y1="300" x2="1440" y2="300" stroke="#1A3A5C" stroke-width="0.5"/>
-      <circle cx="200" cy="300" r="120" stroke="#1A3A5C" stroke-width="0.5" fill="none"/>
-      <circle cx="200" cy="300" r="200" stroke="#1A3A5C" stroke-width="0.3" fill="none"/>
-      <line x1="200" y1="180" x2="700" y2="180" stroke="#1A3A5C" stroke-width="0.5"/>
-      <line x1="700" y1="0" x2="700" y2="500" stroke="#1A3A5C" stroke-width="0.3"/>
-      <rect x="850" y="100" width="400" height="280" stroke="#1A3A5C" stroke-width="0.5" fill="none"/>
-      <circle cx="1050" cy="240" r="60" stroke="#1A3A5C" stroke-width="0.4" fill="none"/>
+      <line x1="200" y1="0" x2="200" y2="900" stroke="#0281a9" stroke-width="0.5"/>
+      <line x1="0" y1="300" x2="1440" y2="300" stroke="#0281a9" stroke-width="0.5"/>
+      <circle cx="200" cy="300" r="120" stroke="#0281a9" stroke-width="0.5" fill="none"/>
+      <circle cx="200" cy="300" r="200" stroke="#0281a9" stroke-width="0.3" fill="none"/>
+      <line x1="200" y1="180" x2="700" y2="180" stroke="#0281a9" stroke-width="0.5"/>
+      <line x1="700" y1="0" x2="700" y2="500" stroke="#0281a9" stroke-width="0.3"/>
+      <rect x="850" y="100" width="400" height="280" stroke="#0281a9" stroke-width="0.5" fill="none"/>
+      <circle cx="1050" cy="240" r="60" stroke="#0281a9" stroke-width="0.4" fill="none"/>
     </svg>
   </div>
 
